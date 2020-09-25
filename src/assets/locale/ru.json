@@ -1,0 +1,38 @@
+{
+  "My-data": "Мои данные",
+  "My-profile": "Мой профиль",
+  "Personal-account": "Личный счет",
+  "My-announcements": "Мои объявления",
+  "Authorization": "Авторизация",
+  "Sign-in": "Войти в систему",
+  "Sign-up": "Зарегистрироваться",
+  "Transport-type": "Тип транспорта",
+  "Brand-model-year": "Марка, модель, год",
+  "The-cost": "Стоимость",
+  "Region": "Регион",
+  "Fuel": "Топливо",
+  "Transmission": "КПП",
+  "Volume-l.": "Объём, л.",
+  "Mileage-thousand-km": "Пробег, тыс. км",
+  "Stop": "Стоп",
+  "Search": "Поиск",
+  "user": {
+    "username": "Имя пользователя",
+    "password": "Пароль",
+    "patronymic": "Отчество",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "region": "Регион",
+    "city": "Город",
+    "email": "Email",
+    "tel": "Телефон"
+  },
+  "validation": {
+    "name-is-required": "Имя обязательно",
+    "surname-is-required": "Фамилия обязательна",
+    "username-required": "Требуется имя пользователя",
+    "email-required": "Требуется Email",
+    "phone-number-required": "Требуется номер телефона",
+    "password-must-be-at-least-6-characters-long": "Пароль должен состоять не менее чем из 6 символов"
+  }
+}

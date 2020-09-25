@@ -1,0 +1,20 @@
+.app-wrapper {
+  display: grid;
+  grid-template-areas:
+    "bl c";
+  grid-template-rows: 1fr;
+  grid-template-columns: 2.5fr 10fr;
+  grid-gap: 10px;
+
+}
+
+.sidebar {
+  display: grid;
+  grid-area: bl;
+}
+
+.app-container {
+  display: grid;
+  grid-area: c;
+}
+

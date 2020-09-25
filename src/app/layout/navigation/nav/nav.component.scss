@@ -1,0 +1,45 @@
+
+.app-wrapper{
+  background-color: #f0f0f0;
+
+  .navbar {
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    margin-bottom: 8px;
+    background: #fff;
+    height: 70px;
+    .navbar-brand {
+      font-size: 35px;
+      color: #232323;
+      margin-left: 40px;
+    }
+
+    .navbar-user {
+      margin-right:40px ;
+      display: flex;
+      align-items: center;
+      color: #fd9b28;
+      font-size: 16px;
+
+      .user-name {
+        margin-right:20px ;
+        color: #232323;
+        font-size: 18px;
+        margin-bottom: 0;
+        padding: .5rem 1rem;
+      }
+      .nav-item {
+        border-color: #fd9b28;
+      }
+      .btn-primary{
+        font-size: 18px;
+        border-color: #fd9b28;
+      }
+      .btn-primary:hover {
+        font-size: 18px;
+        color: white;
+        background-color: #fd9b28;
+        border-color: #fd9b28;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 614px;
+}
+
+.card-auto {
+  display: flex;
+  align-items: center;
+
+  mat-radio-group {
+    margin: 10px;
+  }
+}
+.example-card {
+  display: flex;
+  flex-direction: row;
+  max-width: 300px;
+  margin: 15px 10px;
+  box-shadow: none;
+}
+
+.info {
+  list-style: none;
+
+  li {
+    padding-bottom: 10px;
+  }
+  .info-title {
+    font-size: 24px;
+    padding-bottom: 15px;
+    color: #616161;
+  }
+  .year,
+  .town {
+    color: #8a8a8a;
+    font-size: 18px;
+  }
+  .price {
+    font-size: 22px;
+    color: green;
+  }
+
+}

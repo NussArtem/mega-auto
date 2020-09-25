@@ -1,0 +1,62 @@
+﻿<!--<h1 *ngIf="isAddMode">Add User</h1>-->
+<div class="col-10">
+  <mat-card class="example-card">
+    <h1 *ngIf="!isAddMode">Редактировать пользователя</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">Имя</label>
+        <input id="firstName" type="text" formControlName="firstName" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required">Имя обязательно</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Имя пользователя</label>
+        <input id="username" type="text" formControlName="username" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Требуется имя пользователя</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" formControlName="email" class="form-control" aria-describedby="emailHelp"
+               [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Требуется имя пользователя</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="tel">Телефон</label>
+        <input id="tel" type="tel" formControlName="tel" class="form-control" placeholder="+380 50 123 45 67"
+               [ngClass]="{ 'is-invalid': submitted && f.tel.errors }">
+        <div *ngIf="submitted && f.tel.errors" class="invalid-feedback">
+          <div *ngIf="f.tel.errors.required">Требуется номер телефона</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">
+          Пароль
+          <em *ngIf="!isAddMode">(Оставьте поле пустым, чтобы сохранить тот же пароль)</em>
+        </label>
+        <input id="password" type="password" formControlName="password" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Необходим пароль</div>
+          <div *ngIf="f.password.errors.minlength">Пароль должен состоять не менее чем из 6 символов</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Сохранить
+        </button>
+        <a routerLink="/users" class="btn btn-link">Отмена</a>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,35 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  height: auto;
+}
+
+.card-auto {
+  display: flex;
+  align-items: center;
+
+  mat-radio-group {
+    margin: auto;
+  }
+}
+.example-card {
+  max-width: 400px;
+  margin: 15px 10px;
+}
+
+.info {
+  list-style: none;
+  padding-left: 15px;
+
+  .info-title {
+    font-size: 24px;
+    padding-bottom: 15px;
+    color: #616161;
+  }
+  .price {
+    font-size: 22px;
+    color: green;
+  }
+}

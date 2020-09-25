@@ -1,0 +1,40 @@
+<div class="app-wrapper">
+  <div class="card">
+    <section class="sidebar">
+      <div class="example-button-row">
+
+        <button mat-stroked-button class="btn-primary" routerLink="**" routerLinkActive="active">Auto.Ria</button>
+        <button mat-stroked-button class="btn-primary" color="basic" href="https://rst.ua/">Rst.ua</button>
+        <button mat-stroked-button class="btn-primary" color="basic" href="https://www.olx.ua/">Olx.ua</button>
+
+        <div class="row">
+          <div class="col">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Мои данные
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <ul>
+                <li>
+                  <a routerLink="/profile" routerLinkActive="active">{{"My-profile"| translate}}</a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <a routerLink="/profile/score" routerLinkActive="active">{{"Personal-account"| translate}}</a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <a routerLink="/profile/ads" routerLinkActive="active">{{"My-announcements"|translate}}</a>
+                </li>
+              </ul>
+            </mat-expansion-panel>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+

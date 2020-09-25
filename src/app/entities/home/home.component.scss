@@ -1,0 +1,27 @@
+.app-wrapper {
+  display: grid;
+  grid-template-areas:
+    "c br";
+  grid-template-rows: 1fr;
+  grid-template-columns:9fr 3fr;
+  grid-gap: 10px;
+  //height: 90vh;
+}
+
+
+.sidebar-right {
+  display: grid;
+}
+
+.content {
+  //display: grid;
+  grid-area: c;
+}
+
+.mat-form-field + .mat-form-field {
+  outline: none;
+  margin: 5px;
+
+
+}
+

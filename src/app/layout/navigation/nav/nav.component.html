@@ -1,0 +1,16 @@
+<div class="app-wrapper">
+  <nav class="navbar navbar-dark">
+    <div class="navbar-nav">
+
+      <a class="navbar-brand" routerLink="/">|MeGa Auto</a>
+    </div>
+    <div *ngIf="user">
+      <div class="navbar-user">
+
+        <a class="user-name nav-item nav-link" routerLink="/users">{{user.firstName}}</a>
+
+        <button mat-stroked-button class="btn-primary btn-outline nav-item nav-link" (click)="logout()">Выход</button>
+      </div>
+    </div>
+  </nav>
+</div>

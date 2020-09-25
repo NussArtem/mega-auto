@@ -1,0 +1,175 @@
+<div class="card">
+  <div class="feature">
+
+
+    <div class="tr">
+      <div class="col-3">
+        <h3>{{"Brand-model-year"|translate}}</h3>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Марка</mat-label>
+        <mat-select [(ngModel)]="selectedCar" name="car">
+          <mat-option *ngFor="let car of cars" [value]="car.value">
+            {{car.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Модель</mat-label>
+        <mat-select [(ngModel)]="selectedCar" name="model">
+          <mat-option *ngFor="let car of cars" [value]="car.value">
+            {{car.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="of">
+        <mat-label>Год, от</mat-label>
+        <mat-select disableRipple>
+          <mat-option value="1">2020</mat-option>
+          <mat-option value="2">2019</mat-option>
+          <mat-option value="3">2018</mat-option>
+          <mat-option value="4">2017</mat-option>
+          <mat-option value="5">2016</mat-option>
+          <mat-option value="6">2015</mat-option>
+          <mat-option value="7">2014</mat-option>
+          <mat-option value="8">2013</mat-option>
+          <mat-option value="9">2012</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Год, до</mat-label>
+        <mat-select disableRipple>
+          <mat-option value="1">2020</mat-option>
+          <mat-option value="2">2019</mat-option>
+          <mat-option value="3">2018</mat-option>
+          <mat-option value="4">2017</mat-option>
+          <mat-option value="5">2016</mat-option>
+          <mat-option value="6">2015</mat-option>
+          <mat-option value="7">2014</mat-option>
+          <mat-option value="8">2013</mat-option>
+          <mat-option value="9">2012</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <div class="feature">
+      <div class="tr">
+        <div class="col-3">
+          <h3>{{"The-cost"|translate}}</h3>
+        </div>
+        <div class="flex-block">
+          <mat-form-field appearance="fill" class="example-full-width price">
+            <input matInput  type="text" placeholder="От">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="example-full-width">
+            <input matInput type="text" placeholder="До">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="tr">
+        <div class="col-3">
+          <h3>{{"Region"|translate}}</h3>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>{{"Region"|translate}}</mat-label>
+          <mat-select [(ngModel)]="selectedRegion" name="region">
+            <mat-option *ngFor="let region of regions" [value]="region.value">
+              {{region.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="feature">
+    <h2>Технические характеристики</h2>
+    <div class="tr">
+      <div class="col-3">
+        <h3>{{"Fuel"|translate}}</h3>
+      </div>
+      <mat-chip-list aria-label="Select an option">
+        <mat-chip value="1">Бензин</mat-chip>
+        <mat-chip value="2">Дизель</mat-chip>
+        <mat-chip value="3">Газ</mat-chip>
+        <mat-chip value="4">Газ / Бензин</mat-chip>
+        <mat-chip value="5">Гибрид</mat-chip>
+        <mat-chip value="6">Электро</mat-chip>
+        <mat-chip value="7">Другое</mat-chip>
+        <mat-chip value="8">Газ метан</mat-chip>
+        <mat-chip value="9">Газ пропан-бутан</mat-chip>
+      </mat-chip-list>
+    </div>
+    <div class="tr">
+      <div class="col-3">
+        <h3>{{"Transmission"|translate}}</h3>
+      </div>
+      <mat-chip-list aria-label="Select an option">
+        <mat-chip value="1">Ручная / Механика</mat-chip>
+        <mat-chip value="2">Автомат</mat-chip>
+        <mat-chip value="3">Типтроник</mat-chip>
+        <mat-chip value="4">Робот</mat-chip>
+        <mat-chip value="5">Вариатор</mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+
+  <div class="feature">
+
+    <div class="tr">
+      <div class="col-3">
+        <h3>{{"Volume-l."|translate}}</h3>
+      </div>
+      <div class="flex-block">
+        <mat-form-field appearance="fill" class="example-full-width price">
+          <input matInput type="text" placeholder="От">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input matInput type="text" placeholder="До">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="tr">
+      <div class="col-3">
+        <h3>{{"Mileage-thousand-km"|translate}}</h3>
+      </div>
+      <div class="flex-block">
+        <mat-form-field appearance="fill" class="example-full-width price">
+          <input matInput type="text" placeholder="От">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input matInput type="text" placeholder="До">
+        </mat-form-field>
+      </div>
+    </div>
+
+  </div>
+
+  <!--  <mat-form-field appearance="fill">-->
+  <!--    <mat-label>Сообщение</mat-label>-->
+  <!--    <textarea matInput></textarea>-->
+  <!--  </mat-form-field>-->
+
+  <div class="form-group">
+    <button class="btn btn-primary">
+      {{"Search"|translate}}
+    </button>
+    <a class="btn btn-link">{{"Stop"|translate}}</a>
+  </div>
+
+  <mat-progress-bar mode="determinate" class="progress-bar" value="40"></mat-progress-bar>
+
+</div>

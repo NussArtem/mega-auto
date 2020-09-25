@@ -1,0 +1,28 @@
+
+.sidebar {
+  background: #f7f7f7;
+  .example-button-row {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+
+    button {
+      background: white;
+      outline: none;
+      margin: 5px;
+    }
+    mat-expansion-panel{
+      margin: 5px;
+    }
+    a{
+      color: #fd9b28;
+    }
+    .btn-primary{
+    }
+    .btn-primary:hover {
+      color: white;
+      background-color: #fd9b28;
+      border-color: #fd9b28;
+    }
+  }
+}
