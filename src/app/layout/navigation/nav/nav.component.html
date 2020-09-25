@@ -7,7 +7,8 @@
     <div *ngIf="user">
       <div class="navbar-user">
 
-        <a class="user-name nav-item nav-link" routerLink="/users">{{user.firstName}}</a>
+        <button
+          mat-button class="btn-primary user-name nav-item nav-link" routerLink="/profile">{{user.firstName}}</button>
 
         <button mat-stroked-button class="btn-primary btn-outline nav-item nav-link" (click)="logout()">Выход</button>
       </div>
