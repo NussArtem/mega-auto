@@ -2,16 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: scroll;
-  height: auto;
+  overflow: auto;
+  height: 720px;
+  direction: rtl;
 }
 
 .card-auto {
   display: flex;
   align-items: center;
 
-  mat-radio-group {
-    margin: auto;
+  mat-radio-button {
+    margin-left: 10px;
   }
 }
 .example-card {
@@ -32,4 +33,29 @@
     font-size: 22px;
     color: green;
   }
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 50%;
 }

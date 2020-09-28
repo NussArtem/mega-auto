@@ -15,12 +15,6 @@ a { cursor: pointer }
 .mat-progress-bar-fill::after {
   background-color: #fd9b28;
 }
-/*.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
-  background-color: #fd9b28;
-}
-.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: #fd9b28;
-}*/
 .mat-chip.mat-standard-chip {
   background-color: rgb(245 245 245);
   color: black;
@@ -34,7 +28,12 @@ a { cursor: pointer }
 .mat-standard-chip:hover::after {
   opacity: .99;
 }
-
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: #fd9b28;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #fd9b28;
+}
 .mat-chip.mat-standard-chip::after {
   background: #fd9b28;
 }
@@ -43,18 +42,15 @@ html, body {
   background-color: #f0f0f0;
 
 }
-.mat-stroked-button:hover{
-  border-color: #0062cc;
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus{
+  box-shadow: 0 0 0 0 white;
 }
-.mat-button-focus-overlay {
-  text-align: center;
-  padding: 8px 10px;
-  border: solid 1px #777777;
-  color: #fd9b28;
-  tansition: all .3s linear;
-  -webkit-transition: all .3s linear;
-  -moz-transition: all .3s linear;
-  text-transform: uppercase;
-  background-color: #fd9b28;
+
+.btn-primary.focus, .btn-primary:focus{
+  box-shadow: 0 0 0 0 white;
 }
+
+
+
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -4,7 +4,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {LayoutComponent} from './layout/layout.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
-import {PasswordCheckComponent} from "./password-check/password-check.component";
+import {PasswordCheckComponent} from './password-check/password-check.component';
 
 const routes: Routes = [
   {

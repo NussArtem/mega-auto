@@ -13,7 +13,7 @@ export class NavComponent {
   user: User;
 
 
-  constructor(private accountService: AccountService, private router: Router) {
+  constructor(private accountService: AccountService) {
     this.accountService.user.subscribe(x => this.user = x);
     this.user = this.accountService.userValue;
   }

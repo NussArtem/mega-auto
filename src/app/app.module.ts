@@ -1,4 +1,4 @@
-﻿﻿import {MissingTranslationHandler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
+﻿import {MissingTranslationHandler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -71,9 +71,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
     AlertComponent,
     HomeComponent,
     ContentComponent,
-    CardAutoComponent
-
-,
+    CardAutoComponent,
     NavComponent ,
     SidebarComponent ],
   providers: [

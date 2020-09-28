@@ -1,4 +1,8 @@
-﻿﻿<!-- nav -->
+﻿<!-- nav -->
+<div *ngIf="!user">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="user">
 <app-nav></app-nav>
 <div class="app-wrapper">
   <app-sidebar class="sidebar"></app-sidebar>
@@ -7,4 +11,5 @@
     <app-alert></app-alert>
     <router-outlet></router-outlet>
   </div>
+</div>
 </div>

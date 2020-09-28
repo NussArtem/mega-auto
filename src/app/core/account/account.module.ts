@@ -8,14 +8,16 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PasswordCheckComponent } from './password-check/password-check.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    AccountRoutingModule,
-    TranslateModule
-  ],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        AccountRoutingModule,
+        TranslateModule,
+        MatButtonModule
+    ],
     declarations: [
         LayoutComponent,
         LoginComponent,

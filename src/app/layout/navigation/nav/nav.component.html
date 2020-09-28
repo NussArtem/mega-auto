@@ -1,17 +1,30 @@
-<div class="app-wrapper">
-  <nav class="navbar navbar-dark">
-    <div class="navbar-nav">
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand" routerLink="/">
+    <span style="color: #fd9b28;">|</span>MeGa<span style="color: #fd9b28;">A</span>uto</a>
 
-      <a class="navbar-brand" routerLink="/">|MeGa Auto</a>
-    </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+
+    </ul>
     <div *ngIf="user">
-      <div class="navbar-user">
+      <form class="form-inline my-2 my-lg-0">
 
-        <button
-          mat-button class="btn-primary user-name nav-item nav-link" routerLink="/profile">{{user.firstName}}</button>
+          <div class="navbar-user">
+            <a
+              mat-button
+              class="btn-primary user-name mr-sm-2" routerLink="/profile">{{user.firstName}}</a>
 
-        <button mat-stroked-button class="btn-primary btn-outline nav-item nav-link" (click)="logout()">Выход</button>
-      </div>
+            <button mat-stroked-button class="btn-primary  btn-outline nav-item nav-link my-2 my-sm-0"
+                    (click)="logout()">Выход
+            </button>
+          </div>
+
+      </form>
     </div>
-  </nav>
-</div>
+  </div>
+</nav>
+

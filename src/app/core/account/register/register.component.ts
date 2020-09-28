@@ -43,16 +43,15 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
 
+    this.submitted = true;
     // reset alerts on submit
     this.alertService.clear();
-
     // stop here if form is invalid
-    if (this.form.invalid) {
+   /* if (this.form.invalid) {
       return;
-    }
-
+    }*/
+    console.log('-r-');
     this.loading = true;
     this.accountService.register(this.form.value)
       .pipe(first())

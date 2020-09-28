@@ -9,12 +9,10 @@ const accountModule = () => import('./core/account/account.module').then(x => x.
 const usersModule = () => import('./entities/user/users.module').then(x => x.UsersModule);
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard], children: [
-        {path: '', component: ContentComponent}
-      ]},
+    { path: '', component: HomeComponent, canActivate: [AuthGuard]},
     { path: 'profile', loadChildren: usersModule, canActivate: [AuthGuard] },
-    { path: 'account', loadChildren: accountModule },
-    // otherwise redirect to home
+    { path: 'account', loadChildren: accountModule  },
+    // otherwise redirect to homez
     { path: '**', redirectTo: '' }
 ];
 

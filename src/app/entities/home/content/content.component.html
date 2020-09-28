@@ -1,69 +1,68 @@
-<div class="card">
+<div class="card container">
   <div class="feature">
+    <div class="container row">
+      <div class="tr">
+        <div class="col-3">
+          <h3>{{"Brand-model-year"|translate}}</h3>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Марка</mat-label>
+          <mat-select [(ngModel)]="selectedCar" name="car">
+            <mat-option *ngFor="let car of cars" [value]="car.value">
+              {{car.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
+        <mat-form-field appearance="fill">
+          <mat-label>Модель</mat-label>
+          <mat-select [(ngModel)]="selectedCar" name="model">
+            <mat-option *ngFor="let car of cars" [value]="car.value">
+              {{car.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-    <div class="tr">
-      <div class="col-3">
-        <h3>{{"Brand-model-year"|translate}}</h3>
+        <mat-form-field appearance="fill" class="of">
+          <mat-label>Год, от</mat-label>
+          <mat-select disableRipple>
+            <mat-option value="1">2020</mat-option>
+            <mat-option value="2">2019</mat-option>
+            <mat-option value="3">2018</mat-option>
+            <mat-option value="4">2017</mat-option>
+            <mat-option value="5">2016</mat-option>
+            <mat-option value="6">2015</mat-option>
+            <mat-option value="7">2014</mat-option>
+            <mat-option value="8">2013</mat-option>
+            <mat-option value="9">2012</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Год, до</mat-label>
+          <mat-select disableRipple>
+            <mat-option value="1">2020</mat-option>
+            <mat-option value="2">2019</mat-option>
+            <mat-option value="3">2018</mat-option>
+            <mat-option value="4">2017</mat-option>
+            <mat-option value="5">2016</mat-option>
+            <mat-option value="6">2015</mat-option>
+            <mat-option value="7">2014</mat-option>
+            <mat-option value="8">2013</mat-option>
+            <mat-option value="9">2012</mat-option>
+          </mat-select>
+        </mat-form-field>
+
       </div>
-      <mat-form-field appearance="fill">
-        <mat-label>Марка</mat-label>
-        <mat-select [(ngModel)]="selectedCar" name="car">
-          <mat-option *ngFor="let car of cars" [value]="car.value">
-            {{car.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Модель</mat-label>
-        <mat-select [(ngModel)]="selectedCar" name="model">
-          <mat-option *ngFor="let car of cars" [value]="car.value">
-            {{car.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="of">
-        <mat-label>Год, от</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">2020</mat-option>
-          <mat-option value="2">2019</mat-option>
-          <mat-option value="3">2018</mat-option>
-          <mat-option value="4">2017</mat-option>
-          <mat-option value="5">2016</mat-option>
-          <mat-option value="6">2015</mat-option>
-          <mat-option value="7">2014</mat-option>
-          <mat-option value="8">2013</mat-option>
-          <mat-option value="9">2012</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Год, до</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">2020</mat-option>
-          <mat-option value="2">2019</mat-option>
-          <mat-option value="3">2018</mat-option>
-          <mat-option value="4">2017</mat-option>
-          <mat-option value="5">2016</mat-option>
-          <mat-option value="6">2015</mat-option>
-          <mat-option value="7">2014</mat-option>
-          <mat-option value="8">2013</mat-option>
-          <mat-option value="9">2012</mat-option>
-        </mat-select>
-      </mat-form-field>
-
     </div>
-
     <div class="feature">
       <div class="tr">
         <div class="col-3">
           <h3>{{"The-cost"|translate}}</h3>
         </div>
-        <div class="flex-block">
+        <div class="flex-block ">
           <mat-form-field appearance="fill" class="example-full-width price">
-            <input matInput  type="text" placeholder="От">
+            <input matInput type="text" placeholder="От">
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="example-full-width">
