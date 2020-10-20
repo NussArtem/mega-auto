@@ -1,12 +1,10 @@
 ﻿import {Component, NgModule, OnInit} from '@angular/core';
-import {MissingTranslationHandler, TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
-import {HttpClient} from '@angular/common/http';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {MissingTranslationService} from '@app/shared/services/missing-translation.service';
+import {TranslateService} from '@ngx-translate/core';
+
 import {environment} from '@environments/environment.prod';
-import {AccountService} from '@app/shared/services';
+import {AccountService} from '@app/shared/services/helpers';
 import {User} from '@app/shared/models';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -16,7 +14,9 @@ import {Router} from "@angular/router";
 })
 export class AppComponent implements OnInit {
 
+  isCollapsed: boolean;
   user: User;
+
   constructor(private translateService: TranslateService, private accountService: AccountService, private router: Router) {
     this.accountService.user.subscribe(x => this.user = x);
   }

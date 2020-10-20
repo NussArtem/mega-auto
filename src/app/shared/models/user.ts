@@ -1,13 +1,12 @@
-﻿export class User {
-    id: string;
-    username: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    region: string;
-    city: string;
-    email: string;
-    tel: number;
-    token: string;
-    imageUrl: string;
+﻿import {Token} from "@app/shared/models/token.model";
+
+export class User {
+  id: string;
+  username: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_number: number;
+  access: string;
+  refresh: string;
 }

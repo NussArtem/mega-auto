@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill" id="Region">
+  <mat-label>{{label}}</mat-label>
+  <mat-select disableOptionCentering [(ngModel)]="selectedElement" [multiple]="multiply" [disabled]="disabled">
+    <mat-option *ngFor="let element of _elements" [value]="element">
+      {{element.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

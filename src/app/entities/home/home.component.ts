@@ -1,7 +1,7 @@
 ﻿import {Component} from '@angular/core';
 
-import {User} from '../../shared/models';
-import {AccountService} from '../../shared/services';
+import {User} from '@app/shared/models';
+import {AccountService} from '@app/shared/services/helpers';
 
 @Component({
   templateUrl: 'home.component.html',

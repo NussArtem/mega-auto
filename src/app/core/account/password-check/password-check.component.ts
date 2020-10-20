@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AccountService, AlertService} from "../../../shared/services";
+import {AccountService, AlertService} from "../../../shared/services/helpers";
 import {first} from "rxjs/operators";
 import {Subscription} from "rxjs";
 
@@ -28,7 +28,6 @@ export class PasswordCheckComponent implements OnInit {
 
   ngOnInit() {
     this.routeSubscription = this.route.params.subscribe(params => this.username = params.username);
-    console.log(this.username);
     this.form = this.formBuilder.group({
       password: ['', Validators.required]
     });

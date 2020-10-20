@@ -1,0 +1,22 @@
+<mat-form-field appearance="fill">
+  <mat-label>{{label}}</mat-label>
+  <mat-select [disabled]="disabled" disableOptionCentering multiple (openedChange)="openChange($event)">
+    <mat-select-trigger>
+      <mat-chip-list>
+        <mat-chip [disableRipple]="true" *ngFor="let item of selectedElements" (removed)="removed(item)">
+          {{item.name}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </mat-select-trigger>
+    <cdk-virtual-scroll-viewport itemSize="48" [style.height.px]=5*48>
+      <mat-optgroup *ngFor="let elementGroup of _elementsGroup" [label]="elementGroup.name">
+        <mat-option  *ngFor="let element of elementGroup.filterParameters" [value]="element"
+                    (onSelectionChange)="onSelectionChange($event)">
+          {{element.name}}
+        </mat-option>
+      </mat-optgroup>
+
+    </cdk-virtual-scroll-viewport>
+  </mat-select>
+</mat-form-field>

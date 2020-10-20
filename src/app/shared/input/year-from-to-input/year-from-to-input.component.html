@@ -1,0 +1,17 @@
+<mat-form-field class="your_from" appearance="fill">
+  <mat-label>Год, от</mat-label>
+  <mat-select [(ngModel)]="yearFrom" disableOptionCentering>
+    <mat-option *ngFor="let year of years" [value]="year.value">
+      {{year.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field class="your_to" appearance="fill">
+  <mat-label>Год, до</mat-label>
+  <mat-select [(ngModel)]="yearTo" disableOptionCentering>
+    <mat-option *ngFor="let year of years" [value]="year.value">
+      {{year.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

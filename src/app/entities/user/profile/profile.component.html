@@ -1,78 +1,76 @@
-﻿
-  <mat-card class="example-card">
+﻿﻿<mat-card class="example-card">
 
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>
-        <h1>Моя анкета</h1>
-      </mat-card-title>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>
+      <h1>Моя анкета</h1>
+    </mat-card-title>
 
-    </mat-card-header>
-    <div class="row">
-      <div class="col-2">
-        <img
-          src="https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png"
-          class="img-fluid">
-      </div>
-      <div class="col-1"></div>
-      <div class="col-9">
-        <div class="row">
-          <div class="col">
-            <h2>{{user.firstName}} {{user.lastName}}</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <h2>Ваш клиентский номер: -------</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <h2>+38(095)0000000</h2>
-          </div>
+  </mat-card-header>
+  <div class="row">
+    <div class="col-lg-3 col-mb-5">
+      <img
+        src="https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png"
+        class="img-fluid">
+    </div>
+
+    <div class="col-9 col-mb-7">
+      <div class="row">
+        <div class="col">
+          <h3>{{user.first_name}} {{user.last_name}}</h3>
         </div>
       </div>
-      <mat-card-content>
-        <div class="col-8">
-
+      <div class="row">
+        <div class="col">
+          <h3>Ваш клиентский номер: -------</h3>
         </div>
-      </mat-card-content>
-    </div>
-
-    <div class="form-group row">
-      <label for="inputName" class="col-sm-3 col-form-label">{{"user.firstName"| translate}}</label>
-      <div class="col-sm-4">
-        <input type="text" class="form-control" id="inputName" [(ngModel)]="user.firstName" disabled>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h3>{{user.phone_number}}</h3>
+        </div>
       </div>
     </div>
+    <mat-card-content>
+      <div class="col-8">
 
-    <div class="form-group row">
-      <label for="inputSurname" class="col-sm-3 col-form-label">{{"user.lastName"| translate}}</label>
-      <div class="col-sm-4">
-        <input type="text" class="form-control" id="inputSurname" [(ngModel)]="user.lastName" disabled>
       </div>
+    </mat-card-content>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputName" class="col-sm-3 col-form-label">{{"user.firstName"| translate}}</label>
+    <div class="col-lg-6 col-mb-8">
+      <input type="text" class="form-control" id="inputName" [(ngModel)]="user.first_name" disabled>
     </div>
+  </div>
 
-
-    <div class="form-group row">
-      <label for="inputEmail" class="col-sm-3 col-form-label">{{"user.email"|translate}}</label>
-      <div class="col-sm-4">
-        <input type="email" class="form-control" id="inputEmail" [(ngModel)]="user.email" disabled>
-      </div>
+  <div class="form-group row">
+    <label for="inputSurname" class="col-sm-3 col-form-label">{{"user.lastName"| translate}}</label>
+    <div class="col-lg-6 col-mb-8">
+      <input type="text" class="form-control" id="inputSurname" [(ngModel)]="user.last_name" disabled>
     </div>
+  </div>
 
-    <div class="form-group row">
-      <label for="inputPhone" class="col-sm-3 col-form-label">{{"user.tel"|translate}}</label>
-      <div class="col-sm-4">
-        <input type="tel" class="form-control" id="inputPhone" [(ngModel)]="user.tel" disabled>
-      </div>
+  <div class="form-group row">
+    <label for="inputEmail" class="col-sm-3 col-form-label">{{"user.email"|translate}}</label>
+    <div class="col-lg-6 col-mb-8">
+      <input type="email" class="form-control" id="inputEmail" [(ngModel)]="user.email" disabled>
     </div>
+  </div>
 
-      <div class="form-group">
-        <button class="btn btn-primary" routerLink="edit/{{user.id}}">
-          Редактировать
-        </button>
-      </div>
-  </mat-card>
+  <div class="form-group row">
+    <label for="inputPhone" class="col-sm-3 col-form-label">{{"user.tel"|translate}}</label>
+    <div class="col-lg-6 col-mb-8">
+      <input type="tel" class="form-control" id="inputPhone" [(ngModel)]="user.phone_number" disabled>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary" routerLink="edit/{{user.id}}">
+      Редактировать
+    </button>
+  </div>
+</mat-card>
 
 

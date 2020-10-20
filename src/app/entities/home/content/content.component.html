@@ -1,174 +1,250 @@
-<div class="card container">
-  <div class="feature">
-    <div class="container row">
-      <div class="tr">
-        <div class="col-3">
-          <h3>{{"Brand-model-year"|translate}}</h3>
+<div *ngIf="!isLoading" class="card container-fluid">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="isLoading">
+
+  <div class="card container-fluid ">
+    <div class="row ">
+      <div class="col-lg-9 col-xl-9 filter-panel">
+        <div class="feature">
+          <div class="container-fluid">
+            <div class="form-group">
+              <div class="row">
+
+                <div class="col-lg-6 filter">
+                  <label class="col-form-label" for="Mark">
+                    {{"Transport-type"|translate}}
+                  </label>
+                  <app-multiselect-input
+                    id="TransportType"
+                    [elements]="transportTypes"
+                    [multiply]="false"
+                    (selectedElementsChange)="selectMarks($event)"
+                    [label]="('Transport-type'|translate)">
+                  </app-multiselect-input>
+                </div>
+
+                <div class="col-lg-6 filter">
+                  <label class="col-form-label" for="Mark">
+                    {{"Mark"|translate}}
+                  </label>
+                  <app-multiple-select-group-input
+                    id="Mark"
+                    [disabled]="markSelectDisable"
+                    [elementsGroup]="marksGroup"
+                    (selectedElementsChange)="selectModelGroups($event)"
+                    [label]="('Mark'|translate)">
+                  </app-multiple-select-group-input>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col-lg-6 filter">
+                  <label class="col-form-label" for="Model">
+                    {{"Model"|translate}}
+                  </label>
+                  <app-model-multi-select-group
+                    id="Model"
+                    [label]="('Model'|translate)"
+                    [elementsGroup]="modelGroups"
+                    (selectedElementsChange)="selectModels($event)"
+                    [disabled]="modelSelectDisable">
+                  </app-model-multi-select-group>
+                </div>
+
+                <div class="col-lg-6 filter">
+                  <label class="col-form-label" for="Year">
+                    {{"Year"|translate}}
+                  </label>
+                  <app-year-from-to-input id="Year"
+                                          [(yearFrom)]="yearFrom"
+                                          [(yearTo)]="yearTo">
+                  </app-year-from-to-input>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
-        <mat-form-field appearance="fill">
-          <mat-label>Марка</mat-label>
-          <mat-select [(ngModel)]="selectedCar" name="car">
-            <mat-option *ngFor="let car of cars" [value]="car.value">
-              {{car.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Модель</mat-label>
-          <mat-select [(ngModel)]="selectedCar" name="model">
-            <mat-option *ngFor="let car of cars" [value]="car.value">
-              {{car.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div class="feature">
+          <div class="container-fluid">
+            <div class="form-group">
+              <div class="row">
 
-        <mat-form-field appearance="fill" class="of">
-          <mat-label>Год, от</mat-label>
-          <mat-select disableRipple>
-            <mat-option value="1">2020</mat-option>
-            <mat-option value="2">2019</mat-option>
-            <mat-option value="3">2018</mat-option>
-            <mat-option value="4">2017</mat-option>
-            <mat-option value="5">2016</mat-option>
-            <mat-option value="6">2015</mat-option>
-            <mat-option value="7">2014</mat-option>
-            <mat-option value="8">2013</mat-option>
-            <mat-option value="9">2012</mat-option>
-          </mat-select>
-        </mat-form-field>
+                <div class="col-lg-6 filter">
+                  <label for="Region" class="col-form-label">
+                    {{"Region"|translate}}
+                  </label>
+                  <app-multiple-select-group-input
+                    id="Region"
+                    [label]="('Region'| translate)"
+                    [elementsGroup]="statesGroup"
+                    (selectedElementsChange)="selectRegions($event)"></app-multiple-select-group-input>
+                </div>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Год, до</mat-label>
-          <mat-select disableRipple>
-            <mat-option value="1">2020</mat-option>
-            <mat-option value="2">2019</mat-option>
-            <mat-option value="3">2018</mat-option>
-            <mat-option value="4">2017</mat-option>
-            <mat-option value="5">2016</mat-option>
-            <mat-option value="6">2015</mat-option>
-            <mat-option value="7">2014</mat-option>
-            <mat-option value="8">2013</mat-option>
-            <mat-option value="9">2012</mat-option>
-          </mat-select>
-        </mat-form-field>
+                <div class="col-lg-6 filter">
+                  <label for="The-cost" class="col-form-label">
+                    {{"The-cost"|translate}}
+                  </label>
+                  <app-from-to-input
+                    id="The-cost"
+                    [(elementFrom)]="priseFrom"
+                    [(elementTo)]="priseTo"
+                    [MatIcon]="'attach_money'">
+                  </app-from-to-input>
+                </div>
 
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="container-fluid">
+            <div class="form-group">
+              <div class="row">
+
+                <div class=" col-lg-6 filter">
+                  <label for="Fuel" class=" col-form-label">
+                    {{"Fuel"|translate}}
+                  </label>
+                  <app-multiple-select-group-input
+                    id="Fuel"
+                    [elementsGroup]="fuelTypesGroup"
+                    (selectedElementsChange)="selectFuelType($event)"
+                    [label]="('Fuel'|translate)"></app-multiple-select-group-input>
+                </div>
+
+                <div class=" col-lg-6 filter">
+                  <label for="Volume-l" class="col-form-label">
+                    {{"Volume-l."|translate}}
+                  </label>
+                  <app-from-to-input
+                    id="Volume-l"
+                    [(elementFrom)]="volumeFrom"
+                    [(elementTo)]="volumeTo">
+                  </app-from-to-input>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="container-fluid">
+            <div class="row form-group">
+
+              <div class="col-lg-6 filter">
+                <label for="Transmission" class=" col-form-label">
+                  {{"Transmission"|translate}}
+                </label>
+                <app-multiple-select-group-input
+                  id="Transmission"
+                  [elementsGroup]="gearBoxTypesGroup"
+                  (selectedElementsChange)="selectGearBox($event)"
+                  [label]="('Transmission'|translate)"></app-multiple-select-group-input>
+              </div>
+
+              <div class="col-lg-6 filter">
+                <label for="Mileage-thousand-km" class="col-form-label">
+                  {{"Mileage-thousand-km"|translate}}
+                </label>
+                <app-from-to-input
+                  id="Mileage-thousand-km"
+                  [(elementFrom)]="mileageFrom"
+                  [(elementTo)]="mileageTo"
+                >
+                </app-from-to-input>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-3 col-xl-3 filter-panel">
+        <app-card-auto></app-card-auto>
       </div>
     </div>
-    <div class="feature">
-      <div class="tr">
-        <div class="col-3">
-          <h3>{{"The-cost"|translate}}</h3>
-        </div>
-        <div class="flex-block ">
-          <mat-form-field appearance="fill" class="example-full-width price">
-            <input matInput type="text" placeholder="От">
-          </mat-form-field>
+    <div class="row">
+      <div class="col-12">
+        <div class="container-fluid">
+          <div class="form-group">
+            <button mat-stroked-button (click)="search(0)" class="btn-primary">
+              {{"Search"|translate}}
+            </button>
+            <a class="btn btn-link">{{"Stop"|translate}}</a>
+          </div>
 
-          <mat-form-field appearance="fill" class="example-full-width">
-            <input matInput type="text" placeholder="До">
-          </mat-form-field>
+          <mat-progress-bar *ngIf="!loading" class="progress-bar" value="0"></mat-progress-bar>
+          <mat-progress-bar *ngIf="loading" mode="indeterminate" class="progress-bar" value="0"></mat-progress-bar>
         </div>
       </div>
     </div>
-
-    <div class="feature">
-      <div class="tr">
-        <div class="col-3">
-          <h3>{{"Region"|translate}}</h3>
-        </div>
-        <mat-form-field appearance="fill">
-          <mat-label>{{"Region"|translate}}</mat-label>
-          <mat-select [(ngModel)]="selectedRegion" name="region">
-            <mat-option *ngFor="let region of regions" [value]="region.value">
-              {{region.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
-
 
   </div>
+  <div *ngIf="carsLoaded" class="card ">
+    <div class="card col-lg-12" *ngFor="let ad of ads.search_result_detail">
+      <div class="row ads-row">
+        <div class="col-lg-4 col-sm-5 ">
+          <img
+            [src]="ad.photoData.seoLinkF" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-lg-8 col-sm-7">
 
-  <div class="feature">
-    <h2>Технические характеристики</h2>
-    <div class="tr">
-      <div class="col-3">
-        <h3>{{"Fuel"|translate}}</h3>
+          <a class="info-title ad-info" [routerLink]="'auto'">{{ad.title}}</a>
+          <div class="ad-info">
+            <div class="price">{{ad.USD}} $</div>
+          </div>
+          <div class="ad-info">
+            <mat-chip class="ad-info">
+
+              <mat-icon>local_gas_station</mat-icon>
+              {{ad.autoData.fuelName}}
+            </mat-chip>
+
+            <mat-chip class="ad-info">
+              <mat-icon>settings</mat-icon>
+              {{ad.autoData.gearboxName}}
+            </mat-chip>
+
+            <mat-chip class="ad-info">
+              <mat-icon>speed</mat-icon>
+              {{ad.autoData.race}}
+            </mat-chip>
+
+            <mat-chip class="ad-info">
+              <mat-icon>location_on</mat-icon>
+              {{ad.locationCityName}}
+            </mat-chip>
+
+          </div>
+          <div>
+            <div class="card"
+                 style="::ng-deep border-color: #fd9b28; border-radius: 1px; background: white; border-width: 1px">
+              {{ad.VIN}}
+            </div>
+
+          </div>
+
+        </div>
       </div>
-      <mat-chip-list aria-label="Select an option">
-        <mat-chip value="1">Бензин</mat-chip>
-        <mat-chip value="2">Дизель</mat-chip>
-        <mat-chip value="3">Газ</mat-chip>
-        <mat-chip value="4">Газ / Бензин</mat-chip>
-        <mat-chip value="5">Гибрид</mat-chip>
-        <mat-chip value="6">Электро</mat-chip>
-        <mat-chip value="7">Другое</mat-chip>
-        <mat-chip value="8">Газ метан</mat-chip>
-        <mat-chip value="9">Газ пропан-бутан</mat-chip>
-      </mat-chip-list>
+
     </div>
-    <div class="tr">
-      <div class="col-3">
-        <h3>{{"Transmission"|translate}}</h3>
-      </div>
-      <mat-chip-list aria-label="Select an option">
-        <mat-chip value="1">Ручная / Механика</mat-chip>
-        <mat-chip value="2">Автомат</mat-chip>
-        <mat-chip value="3">Типтроник</mat-chip>
-        <mat-chip value="4">Робот</mat-chip>
-        <mat-chip value="5">Вариатор</mat-chip>
-      </mat-chip-list>
-    </div>
+    <mat-paginator
+      #paginator
+      [disabled]="!paginationIsActive"
+      [hidePageSize]="true"
+      [length]="length"
+      [pageSize]="10"
+
+      (page)="pagination($event)">
+    </mat-paginator>
   </div>
-
-  <div class="feature">
-
-    <div class="tr">
-      <div class="col-3">
-        <h3>{{"Volume-l."|translate}}</h3>
-      </div>
-      <div class="flex-block">
-        <mat-form-field appearance="fill" class="example-full-width price">
-          <input matInput type="text" placeholder="От">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill" class="example-full-width">
-          <input matInput type="text" placeholder="До">
-        </mat-form-field>
-      </div>
-    </div>
-
-    <div class="tr">
-      <div class="col-3">
-        <h3>{{"Mileage-thousand-km"|translate}}</h3>
-      </div>
-      <div class="flex-block">
-        <mat-form-field appearance="fill" class="example-full-width price">
-          <input matInput type="text" placeholder="От">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill" class="example-full-width">
-          <input matInput type="text" placeholder="До">
-        </mat-form-field>
-      </div>
-    </div>
-
-  </div>
-
-  <!--  <mat-form-field appearance="fill">-->
-  <!--    <mat-label>Сообщение</mat-label>-->
-  <!--    <textarea matInput></textarea>-->
-  <!--  </mat-form-field>-->
-
-  <div class="form-group">
-    <button class="btn btn-primary">
-      {{"Search"|translate}}
-    </button>
-    <a class="btn btn-link">{{"Stop"|translate}}</a>
-  </div>
-
-  <mat-progress-bar mode="determinate" class="progress-bar" value="40"></mat-progress-bar>
-
 </div>

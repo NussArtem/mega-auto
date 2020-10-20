@@ -1,30 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-light ">
-  <a class="navbar-brand" routerLink="/">
-    <span style="color: #fd9b28;">|</span>MeGa<span style="color: #fd9b28;">A</span>uto</a>
+<div class="app-wrapper container">
+  <nav class="navbar fixed-top navbar-light  ">
+    <a class="navbar-brand" routerLink="/">
+      <span style="color: #fd9b28;">|</span>MeGa<span style="color: #fd9b28;">A</span>uto
+    </a>
+    <form class="form-inline">
+      <div class="navbar-user">
+        <button
+          mat-button
+          class="btn-primary btn-outline-success nav-item nav-link my-2 my-sm-0 user-name"
+          routerLink="/profile">
+          {{user.first_name}}
+        </button>
+        <button
+          mat-stroked-button
+          class="btn-primary btn-outline-success nav-item nav-link my-2 my-sm-0"
+          (click)="logout()">
+          Выход
+        </button>
+        <button class="navbar-toggler  d-lg-none collapsed my-2 my-sm-0" type="button" data-toggle="collapse"
+                #dismiss
+                data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </form>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav mr-auto">
-
-    </ul>
-    <div *ngIf="user">
-      <form class="form-inline my-2 my-lg-0">
-
-          <div class="navbar-user">
-            <a
-              mat-button
-              class="btn-primary user-name mr-sm-2" routerLink="/profile">{{user.firstName}}</a>
-
-            <button mat-stroked-button class="btn-primary  btn-outline nav-item nav-link my-2 my-sm-0"
-                    (click)="logout()">Выход
-            </button>
-          </div>
-
-      </form>
-    </div>
-  </div>
-</nav>
+  </nav>
+</div>
 

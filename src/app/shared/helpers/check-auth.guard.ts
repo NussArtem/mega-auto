@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router} from '@angular/router';
-import { Observable } from 'rxjs';
-import {AccountService} from "../services";
+import {Observable} from 'rxjs';
+import {AccountService} from "../services/helpers";
 import {AuthGuard} from "./auth.guard";
 
 @Injectable({
@@ -13,12 +13,12 @@ export class CheckAuthGuard implements CanActivate {
     private router: Router,
     private accountService: AccountService,
     private auth: AuthGuard
-  ) {}
+  ) {
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const user = this.accountService.userValue;
-    console.log(user.username);
-    this.router.navigate(['/account/password-check/' + user.username], { queryParams: { returnUrl: state.url }});
+    this.router.navigate(['/account/password-check/' + user.username], {queryParams: {returnUrl: state.url}});
     // authorised so return true
     return false;
   }

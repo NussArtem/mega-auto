@@ -1,9 +1,10 @@
 ﻿import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {first} from 'rxjs/operators';
+import {catchError, first} from 'rxjs/operators';
 
-import {AccountService, AlertService} from '../../../shared/services';
+import {AccountService, AlertService} from '../../../shared/services/helpers';
+import {pipe} from "rxjs";
 
 @Component({
   templateUrl: 'register.component.html',
@@ -14,6 +15,8 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
+  countryNumber = '+38';
+  mobNumberPattern = '^((\\+91-?)|0)?[0-9]{10}$';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,13 +29,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
       username: ['', Validators.required],
-      region: ['', Validators.required],
-      city: ['', Validators.required],
       email: ['', Validators.required],
-      tel: ['', Validators.required],
+      phone_number: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
@@ -48,11 +49,12 @@ export class RegisterComponent implements OnInit {
     // reset alerts on submit
     this.alertService.clear();
     // stop here if form is invalid
-   /* if (this.form.invalid) {
+    if (this.form.invalid) {
       return;
-    }*/
-    console.log('-r-');
+    }
+
     this.loading = true;
+    this.form.value.phone_number = this.countryNumber + this.form.value.phone_number;
     this.accountService.register(this.form.value)
       .pipe(first())
       .subscribe({
@@ -60,10 +62,11 @@ export class RegisterComponent implements OnInit {
           this.alertService.success('Registration successful', {keepAfterRouteChange: true});
           this.router.navigate(['../login'], {relativeTo: this.route});
         },
-        error: error => {
-          this.alertService.error(error);
+        error: err => {
+          this.alertService.error(err.statusText);
+          this.f.errors = err.errors;
           this.loading = false;
-        }
+        },
       });
   }
 }

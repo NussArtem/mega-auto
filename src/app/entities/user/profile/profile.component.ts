@@ -1,10 +1,8 @@
 ﻿import {Component, OnInit} from '@angular/core';
 import {first} from 'rxjs/operators';
 
-import {AccountService} from '../../../shared/services';
-import {User} from "../../../shared/models";
-import {ActivatedRoute} from "@angular/router";
-import {AuthGuard} from "../../../shared/helpers";
+import {AccountService} from '../../../shared/services/helpers';
+import {User} from '../../../shared/models';
 
 @Component({
   templateUrl: 'profile.component.html',
@@ -21,7 +19,8 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   deleteUser(id: string) {
     const user = this.users.find(x => x.id === id);

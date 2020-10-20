@@ -1,40 +1,48 @@
-<div class="app-wrapper" >
-  <div class="card">
-    <section class="sidebar">
-      <div class="example-button-row">
+<nav id="sidebarMenu" class="col-lg-2 d-lg-block bg-light sidebar collapse">
+  <div class="sidebar-sticky ">
 
-        <button mat-stroked-button class="btn-primary" routerLink="**" routerLinkActive="active">Auto.Ria</button>
-        <button mat-stroked-button class="btn-primary" color="basic" href="https://rst.ua/">Rst.ua</button>
-        <button mat-stroked-button class="btn-primary" color="basic" href="https://www.olx.ua/">Olx.ua</button>
+    <div id="dismiss">
+      <i class="fas fa-arrow-left"></i>
+    </div>
 
-        <div class="row">
-          <div class="col">
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Мои данные
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <ul>
-                <li>
-                  <a routerLink="/profile" routerLinkActive="active">{{"My-profile"| translate}}</a>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <a routerLink="/profile/score" routerLinkActive="active">{{"Personal-account"| translate}}</a>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <a routerLink="/profile/ads" routerLinkActive="active">{{"My-announcements"|translate}}</a>
-                </li>
-              </ul>
-            </mat-expansion-panel>
-          </div>
+    <div class="example-button-row">
+      <button mat-stroked-button class="btn-primary" data-toggle="collapse" data-target=".collapse.show" routerLink="**"
+              routerLinkActive="active">Auto.Ria
+      </button>
+      <button mat-stroked-button class="btn-primary" color="basic" href="https://rst.ua/">Rst.ua</button>
+      <button mat-stroked-button class="btn-primary" color="basic" href="https://www.olx.ua/">Olx.ua</button>
+
+
+      <div >
+        <div >
+
+          <mat-expansion-panel   class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title >
+                <span>Мои данные</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+              <li>
+                <a routerLink="/profile" data-toggle="collapse" data-target=".collapse.show"
+                   routerLinkActive="active">{{"My-profile"| translate}}</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a routerLink="/profile/score" data-toggle="collapse" data-target=".collapse.show"
+                   routerLinkActive="active">{{"Personal-account"| translate}}</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a routerLink="/profile/ads" data-toggle="collapse" data-target=".collapse.show"
+                   routerLinkActive="active">{{"My-announcements"|translate}}</a>
+              </li>
+            </ul>
+          </mat-expansion-panel>
         </div>
       </div>
-    </section>
+    </div>
   </div>
-</div>
-
+</nav>

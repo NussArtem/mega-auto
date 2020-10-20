@@ -1,39 +1,94 @@
+.app-wrapper {
+  @media screen and (max-width: 736px) {
+    .navbar {
+      height: 75px;
+    }
+    .navbar a.navbar-brand {
+      font-size: 28px;
+    }
+    .navbar .navbar-user button.btn-primary:hover {
+      font-size: 14px;
+      color: white;
+      background-color: #fd9b28;
+      border-color: #fd9b28;
+      box-shadow: #fd9b28;
+    }
+    .navbar .navbar-user button.btn-primary {
+      font-size: 14px;
+    }
+    margin-bottom: 90px;
+    .navbar {
+      padding: 10px 5px
+    }
 
+  }
+
+  @media screen and (max-width: 568px) {
+    .navbar a.navbar-brand {
+      font-size: 16px;
+    }
+    .navbar .navbar-user button.btn-primary:hover {
+      font-size: 14px;
+      color: white;
+      background-color: #fd9b28;
+      border-color: #fd9b28;
+      box-shadow: #fd9b28;
+    }
+    .navbar .navbar-user button.btn-primary {
+      font-size: 14px;
+    }
+    margin-bottom: 90px;
+    .navbar {
+      padding: 10px 5px
+    }
+
+
+  }
+
+  background-color: #f0f0f0;
+  margin-top: 85px;
 
   .navbar {
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    margin-bottom: 8px;
+    height: 70px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
     background: #fff;
     /* height: 70px;*/
     .navbar-brand {
       font-size: 35px;
       color: #232323;
-
+      margin-right: 5px;
     }
 
+
     .navbar-user {
-      margin-right:40px ;
+
       display: flex;
       align-items: center;
       color: #fd9b28;
       font-size: 16px;
 
       .user-name {
-        margin-right: 20px;
+        margin-right: 5px;
         color: #232323;
         background-color: white;
 
       }
 
+      .navbar-toggler {
+        margin-left: 20px;
+      }
+
       .nav-item {
         border-color: #fd9b28;
       }
-      .btn-primary{
+
+      .btn-primary {
         font-size: 18px;
         border-color: #fd9b28;
 
       }
+
       .btn-primary:hover {
         font-size: 18px;
         color: white;
@@ -42,10 +97,14 @@
         box-shadow: #fd9b28;
       }
 
-      .btn-primary.focus .btn-primary:focus{
+      .btn-primary.focus .btn-primary:focus {
         box-shadow: white;
       }
 
     }
   }
 
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    border-radius: 10px;
+  }
+}

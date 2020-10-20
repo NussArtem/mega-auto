@@ -1,70 +1,39 @@
-<div class="card">
+<div class="container-fluid">
+<div class="card ">
 
-  <div class="card-auto">
-
-    <mat-card class="example-card">
-      <img mat-card-image src="assets/img/maserati-levante.jpg" alt="Maserati Levante">
-      <mat-card-content>
-        <ul class="info">
-          <li class="info-title">
-            <span>Maserati</span>
-          </li>
-          <li>
-            <span class="price">50 508 $</span>
-          </li>
-        </ul>
-      </mat-card-content>
-      <mat-card-footer>
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="2"></mat-radio-button>
-        </mat-radio-group>
-      </mat-card-footer>
-    </mat-card>
+  <div class="card-header">
+    <h1>Мои объявления</h1>
   </div>
 
-  <div class="card-auto">
+  <div  class="card-auto center" *ngFor="let car of carsInPage">
 
+      <mat-card *ngIf="car" class="example-card ">
+        <img mat-card-image *ngIf="car.imageUrl" [src]="car.imageUrl">
+        <mat-card-content>
+          <ul class="info">
+            <li class="info-title">
+              <span *ngIf="car.name">{{car.name}}</span>
+            </li>
+            <li>
+              <span class="price" *ngIf="car.price">{{car.price}} $</span>
+            </li>
+          </ul>
+        </mat-card-content>
+        <mat-card-footer>
+          <mat-checkbox ></mat-checkbox>
+        </mat-card-footer>
+      </mat-card>
 
-    <mat-card class="example-card">
-      <img mat-card-image src="assets/img/maserati.jpg" alt="Maserati">
-      <mat-card-content>
-        <ul class="info">
-          <li class="info-title">
-            <span>Maserati</span>
-          </li>
-          <li>
-            <span class="price">50 508 $</span>
-          </li>
-        </ul>
-      </mat-card-content>
-      <mat-card-footer>
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="2"></mat-radio-button>
-        </mat-radio-group>
-      </mat-card-footer>
-    </mat-card>
   </div>
 
-  <div class="card-auto">
-
-    <mat-card class="example-card">
-      <img mat-card-image src="assets/img/pininfarina-maserati.jpg" alt="Maserati">
-      <mat-card-content>
-        <ul class="info">
-          <li class="info-title">
-            <span>Maserati</span>
-          </li>
-          <li>
-            <span class="price">120 650 $</span>
-          </li>
-        </ul>
-      </mat-card-content>
-      <mat-card-footer>
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="3"></mat-radio-button>
-        </mat-radio-group>
-
-      </mat-card-footer>
-    </mat-card>
+  <mat-paginator [length]="numberOfPage"
+                 [pageSize]="2"
+                 (page)="doLeaf($event)"
+                 hidePageSize="folse"
+                 [showFirstLastButtons]="false">
+  </mat-paginator
+  >
+  <div *ngIf="pageEvent">
   </div>
+</div>
 </div>

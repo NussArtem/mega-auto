@@ -1,3 +1,4 @@
+/*
 .card {
   display: flex;
   flex-direction: column;
@@ -42,4 +43,55 @@
     color: green;
   }
 
+}
+*/
+mat-checkbox{
+  margin-left: 10px;
+}
+
+.example-card {
+  margin-bottom: 10px;
+}
+
+.card-auto {
+  margin: 15px;
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.info {
+  list-style: none;
+  padding-left: 15px;
+
+  .info-title {
+    font-size: 24px;
+    padding-bottom: 15px;
+    color: #616161;
+  }
+
+  .price {
+    font-size: 22px;
+    color: green;
+  }
+}
+
+.card-auto {
+  display: flex;
+  align-items: center;
+
+  mat-radio-button {
+    margin-left: 10px;
+  }
 }

@@ -1,0 +1,13 @@
+<mat-form-field appearance="fill" class="cost-from">
+  <mat-label>От</mat-label>
+  <input [(ngModel)]="elementFrom" type="number" onkeypress="return (event.charCode === 8 || event.charCode === 0 || event.charCode === 13) ? null : event.charCode >= 48 && event.charCode <= 57" matInput >
+  <mat-icon  *ngIf="MatIcon" matSuffix>{{MatIcon}}</mat-icon>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="cost-to">
+  <mat-label>До</mat-label>
+  <input [(ngModel)]="elementTo" type="number"
+         onkeypress="return (event.charCode === 8 || event.charCode === 0 || event.charCode === 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+         matInput >
+  <mat-icon *ngIf="MatIcon" matSuffix>{{MatIcon}}</mat-icon>
+</mat-form-field>

@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { MissingTranslationService } from './missing-translation.service';
+import {MissingTranslationService} from './missing-translation.service';
 
 describe('MissingTranslationService', () => {
   let service: MissingTranslationService;
