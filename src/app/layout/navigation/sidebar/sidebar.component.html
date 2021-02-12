@@ -9,37 +9,39 @@
       <button mat-stroked-button class="btn-primary" data-toggle="collapse" data-target=".collapse.show" routerLink="**"
               routerLinkActive="active">Auto.Ria
       </button>
-      <button mat-stroked-button class="btn-primary" color="basic" href="https://rst.ua/">Rst.ua</button>
-      <button mat-stroked-button class="btn-primary" color="basic" href="https://www.olx.ua/">Olx.ua</button>
+      <button mat-stroked-button class="btn-primary" color="basic">Rst.ua</button>
+      <button mat-stroked-button class="btn-primary" color="basic">Olx.ua</button>
 
 
-      <div >
-        <div >
+      <div>
+        <div *ngIf="user">
 
-          <mat-expansion-panel   class="mat-elevation-z0">
+          <mat-expansion-panel class="mat-elevation-z0">
             <mat-expansion-panel-header>
-              <mat-panel-title >
+              <mat-panel-title>
                 <span>Мои данные</span>
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <ul>
-              <li>
-                <a routerLink="/profile" data-toggle="collapse" data-target=".collapse.show"
-                   routerLinkActive="active">{{"My-profile"| translate}}</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a routerLink="/profile/score" data-toggle="collapse" data-target=".collapse.show"
-                   routerLinkActive="active">{{"Personal-account"| translate}}</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a routerLink="/profile/ads" data-toggle="collapse" data-target=".collapse.show"
-                   routerLinkActive="active">{{"My-announcements"|translate}}</a>
-              </li>
-            </ul>
+            <div class="expansion-content">
+              <ul>
+                <li>
+                  <a routerLink="/profile" data-toggle="collapse" data-target=".collapse.show"
+                     routerLinkActive="active">{{"My-profile"| translate}}</a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <a routerLink="/profile/score" data-toggle="collapse" data-target=".collapse.show"
+                     routerLinkActive="active">{{"Personal-account"| translate}}</a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <a routerLink="/profile/ads" data-toggle="collapse" data-target=".collapse.show"
+                     routerLinkActive="active">{{"My-announcements"|translate}}</a>
+                </li>
+              </ul>
+            </div>
           </mat-expansion-panel>
         </div>
       </div>

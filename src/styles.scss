@@ -3,8 +3,81 @@ a {
   cursor: pointer
 }
 
+/* .mat-form-field-empty.mat-form-field-label: {
+   color: #fd9b28 !important;
+ }*/
+
+.form-group {
+
+
+  .clear {
+    margin-left: auto;
+  }
+
+  .btn-primary:focus {
+    background-color: #fd9b28;
+    color: white;
+  }
+
+  .btn-primary {
+    font-size: 18px;
+    border-color: #fd9b28;
+    color: #fd9b28;
+  }
+
+  .btn-primary:hover {
+    font-size: 18px;
+    color: white;
+    background-color: #fd9b28;
+    border-color: #fd9b28;
+    box-shadow: #fd9b28;
+  }
+
+  .btn-primary:active {
+    background-color: #fd9b28 !important;
+  }
+
+  .btn-link {
+    color: #fd9b28;
+  }
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #fd9b28 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-primary, mat-expansion-panel {
+    width: 100%;
+    margin: 5px 0 !important;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .canceling {
+
+    margin-left: 15px !important;
+  }
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #fd9b28 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #fd9b28 !important;;
+}
+
 .mat-card:not([class*=mat-elevation-z]) {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+
+mat-chip {
+  transition: none !important;
+  box-shadow: none !important;
 }
 
 .mat-progress-spinner circle, .mat-spinner circle {
@@ -71,11 +144,42 @@ a {
   color: #fd9b28;
 }
 
+.btn-primary:focus {
+  background-color: #fd9b28;
+  color: white;
+}.btn-primary:disabled {
+  background-color: #fd9b28;
+  color: white;
+}
+
+.btn-primary {
+  font-size: 18px;
+  border-color: #fd9b28;
+  color: #fd9b28;
+}
+
+.btn-primary:hover {
+  font-size: 18px;
+  color: white;
+  background-color: #fd9b28;
+  border-color: #fd9b28;
+  box-shadow: #fd9b28;
+}
+
+.btn-primary:active {
+  background-color: #fd9b28 !important;
+}
+
+.btn-link {
+  color: #fd9b28;
+}
+
 html, body {
   height: 100%;
   background-color: #f0f0f0;
 
 }
+
 
 .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0 white;

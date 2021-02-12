@@ -1,7 +1,6 @@
-import {Component, OnChanges, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {Component} from '@angular/core';
 import {User} from '../../../shared/models';
 import {AccountService} from '../../../shared/services/helpers';
-import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-nav',

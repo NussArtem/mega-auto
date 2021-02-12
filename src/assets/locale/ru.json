@@ -4,11 +4,12 @@
   "Personal-account": "Личный счет",
   "My-announcements": "Мои объявления",
   "Authorization": "Авторизация",
-  "Sign-in": "Войти в систему",
+  "Sign-in": "Вход",
   "Sign-in-": "Войти",
   "Sign-up": "Зарегистрироваться",
   "Transport-type": "Тип транспорта",
-  "Mark-model-year": "Марка, модель, год",
+  "Trade-type": "Тип обмена",
+  "Brand-model-year": "Марка, модель, год",
   "The-cost": "Стоимость",
   "Region": "Регион",
   "Fuel": "Топливо",
@@ -16,10 +17,13 @@
   "Volume-l.": "Объём, л.",
   "Mileage-thousand-km": "Пробег, тыс. км",
   "Stop": "Стоп",
-  "Search": "Поиск",
+  "Search": "Начать рассылку",
   "Model": "Модель",
-  "Mark": "Марка",
-  "Year": "год",
+  "Brand": "Марка",
+  "Year": "Год",
+  "Canceling": "Отмена",
+  "auto-ria-id": "AutoRia id",
+  "auto-ria-key": "AutoRia key",
   "user": {
     "username": "Имя пользователя",
     "password": "Пароль",
@@ -37,6 +41,7 @@
     "username-required": "Требуется имя пользователя",
     "email-required": "Требуется Email",
     "phone-number-required": "Требуется номер телефона",
-    "password-must-be-at-least-6-characters-long": "Пароль должен состоять не менее чем из 6 символов"
+    "password-must-be-at-least-6-characters-long": "Пароль должен состоять не менее чем из 6 символов",
+    "not-found": "К сожалению, по Вашему запросу Объявлений не найдено."
   }
 }

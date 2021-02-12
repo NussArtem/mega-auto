@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SearchResultDetail} from '@app/shared/models/auto-ria-filter-entitys/search-result-detail.model';
-import {AutoRiaAds} from "@app/shared/models/auto-ria-ads.model";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
+import {AutoRiaFilterService} from "@app/shared/services/auto-ria/filters/auto-ria-filter.service";
 
 @Component({
   selector: 'app-auto',
@@ -11,18 +11,19 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class AutoComponent implements OnInit {
 
-  searchResultDetail: SearchResultDetail;
+  auto: SearchResultDetail;
 
-  constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
+  constructor(private activatedRoute: ActivatedRoute, private http: HttpClient, private autoRiaFilterService: AutoRiaFilterService) {
+    autoRiaFilterService.search(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).subscribe(
+      value => {
+        this.auto = value.search_result_detail[0];
+      }
+    );
+  }
 
   ngOnInit(): void {
-    this.searchResultDetail ;
-/*      let params = new HttpParams().set('id','')
-    console.log(params);
-    this.http.get<AutoRiaAds>(`http://94.237.97.139:8000/api/v1/autoria_parameters/search/`, {params});*/
     this.activatedRoute.queryParams.subscribe(params => {
-      const id = params['id'];
-      console.log(id); // Print the parameter to the console.
+      const id = params.id;
     });
   }
 

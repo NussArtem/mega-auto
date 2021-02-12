@@ -9,7 +9,7 @@
   left: 0;
   z-index: 100; /* Behind the navbar */
   padding: 50px 0 0; /* Height of navbar */
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
 
 }
 
@@ -27,30 +27,39 @@
     margin-top: 18px;
 
     button {
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
       background: white;
       outline: none;
       margin: 5px;
     }
+
     .mat-expansion-panel-header {
       height: 33.6px;
     }
+
     mat-expansion-panel {
       margin: 5px;
       border: 1px solid rgba(0, 0, 0, .12);
     }
-    ::ng-deep .mat-expansion-panel-body{
+
+    ::ng-deep .mat-expansion-panel-body {
       padding: 0;
     }
+
     mat-panel-title {
       justify-content: center !important;
     }
-    mat-panel-title.mat-expansion-panel-header-title{
+
+    mat-panel-title.mat-expansion-panel-header-title {
       font-family: Roboto, "Helvetica Neue", sans-serif;
       font-size: 14px;
       font-weight: 500;
       color: black;
-      margin-right:auto;
+      margin-right: auto;
     }
+
     a {
       color: #fd9b28;
     }
@@ -80,3 +89,6 @@
   text-transform: uppercase;
 }
 
+.expansion-content {
+  margin-top: 12.8px;
+}

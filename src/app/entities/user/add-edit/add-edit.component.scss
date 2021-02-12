@@ -1,12 +1,36 @@
+.form-group {
+  .btn-primary:focus {
+    background-color: #fd9b28;
+    color: white;
+  }
 
-.btn-primary {
-  border-color: #fd9b28;
-  background: #fd9b28;
+  .btn-primary {
+    font-size: 18px;
+    border-color: #fd9b28;
+    color: #fd9b28;
+  }
+
+
+  .btn-primary:hover {
+    font-size: 18px;
+
+    background-color: white;
+    border-color: #fd9b28;
+    box-shadow: #fd9b28;
+  }
+
+  .btn-primary:disabled {
+    background-color: white;
+  }
+
+  .btn-primary:active {
+    color: white;
+    background-color: #fd9b28 !important;
+  }
 }
 
-.btn-link {
-  color: #fd9b28;
-
+button {
+  margin: 5px 0;
 }
 
 .example-card {

@@ -1,5 +1,9 @@
-﻿ <app-content></app-content>
+﻿﻿<router-outlet></router-outlet>
+<!--
+ <a href="#"  class="topbutton "></a>-->
 
+<a mat-mini-fab class=" scroll-to-top btn-primary" (click)="scrollToTop()"
+   [ngClass]="{'show-scrollTop': windowScrolled}">
+  <mat-icon>arrow_upward</mat-icon>
+</a>
 
-
-<router-outlet></router-outlet>

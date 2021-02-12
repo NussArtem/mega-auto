@@ -1,13 +1,37 @@
-
-.sidebar-right {
+.mat-mini-fab {
+  transition: none !important;
+  box-shadow: none !important;
 
 }
 
-.app-wrapper {
+.mat-mini-fab:hover {
+  color: white;
+  background: #fd9b28;
+}
 
-  .mat-form-field + .mat-form-field {
-    outline: none;
-
+@media screen and (min-width: 1600px) {
+  a.scroll-to-top {
+    display: none;
   }
 }
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  background: white;
+  color: #fd9b28;
+  cursor: pointer;
+  display: none;
+  transition: all .2s ease-in-out;
+  border: 1px solid #fd9b28 !important;
+
+}
+
+.show-scrollTop {
+  display: inline;
+  transition: all .2s ease-in-out;
+}
+
+
 

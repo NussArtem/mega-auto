@@ -11,8 +11,9 @@
     </mat-select-trigger>
     <cdk-virtual-scroll-viewport itemSize="48" [style.height.px]=5*48>
       <mat-optgroup *ngFor="let elementGroup of _elementsGroup" [label]="elementGroup.filterParameter.name">
-        <mat-option  *ngFor="let element of elementGroup.filterParameters" [value]="{parentalValue: elementGroup.filterParameter.value,filterParameters: element}"
-                     (onSelectionChange)="onSelectionChange($event)">
+        <mat-option *ngFor="let element of elementGroup.filterParameters"
+                    [value]="{parentalValue: elementGroup.filterParameter.value,filterParameters: element}"
+                    (onSelectionChange)="onSelectionChange($event)">
           {{element.name}}
         </mat-option>
       </mat-optgroup>

@@ -1,11 +1,11 @@
-﻿import {MissingTranslationHandler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
+﻿﻿import {MissingTranslationHandler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MissingTranslationService} from '@app/shared/services/helpers/missing-translation.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from '@app/app-routing.module';
@@ -29,18 +29,18 @@ import {HomeComponent} from '@app/entities/home';
 import {ErrorInterceptor, JwtInterceptor} from '@app/shared/helpers';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {ChipsMultInputComponent} from './shared/input/chips-mult-input/chips-mult-input.component';
-import {MatPaginatorModule} from '@angular/material/paginator';;
-import {MultipleSelectInfiniteScrollingInputComponent} from './shared/input/multiple-select-infinite-scrolling-input/multiple-select-infinite-scrolling-input.component'
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import { MultipleSelectGroupInputComponent } from './shared/input/multiple-select-group-input/multiple-select-group-input.component';
-import { YearFromToInputComponent } from './shared/input/year-from-to-input/year-from-to-input.component';
-import { FromToInputComponent } from './shared/input/from-to-input/from-to-input.component';
+import {MultipleSelectGroupInputComponent} from './shared/input/multiple-select-group-input/multiple-select-group-input.component';
+import {YearFromToInputComponent} from './shared/input/year-from-to-input/year-from-to-input.component';
+import {FromToInputComponent} from './shared/input/from-to-input/from-to-input.component';
 
-import { MultiselectInputComponent } from './shared/input/multiselect-input/multiselect-input.component';
-import { MultiselectGroupInputComponent } from './shared/input/multiselect-group-input/multiselect-group-input.component';;
-import { AutoComponent } from './entities/home/auto/auto.component';
-import { ModelMultiSelectGroupComponent } from './entities/home/model-multi-select-group/model-multi-select-group.component'
+import {MultiselectInputComponent} from './shared/input/multiselect-input/multiselect-input.component';
+import {MultiselectGroupInputComponent} from './shared/input/multiselect-group-input/multiselect-group-input.component';
+import {AutoComponent} from './entities/home/auto/auto.component';
+import {ModelMultiSelectGroupComponent} from './entities/home/model-multi-select-group/model-multi-select-group.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
 }
@@ -78,7 +78,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
     TranslateModule,
     MatChipsModule,
     MatAutocompleteModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTooltipModule
   ],
   declarations: [
     AppComponent,
@@ -88,17 +89,16 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
     CardAutoComponent,
     NavComponent,
     SidebarComponent,
-    ChipsMultInputComponent,
-    MultipleSelectInfiniteScrollingInputComponent,
     MultipleSelectGroupInputComponent,
     YearFromToInputComponent,
     FromToInputComponent,
     MultiselectInputComponent,
     MultiselectGroupInputComponent
-,
+    ,
     AutoComponent
-,
-    ModelMultiSelectGroupComponent ],
+    ,
+    ModelMultiSelectGroupComponent
+  ],
 
 
   providers: [

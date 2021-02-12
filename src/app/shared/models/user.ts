@@ -1,6 +1,4 @@
-﻿import {Token} from "@app/shared/models/token.model";
-
-export class User {
+﻿export class User {
   id: string;
   username: string;
   first_name: string;
@@ -9,4 +7,5 @@ export class User {
   phone_number: number;
   access: string;
   refresh: string;
+  balance: 0
 }

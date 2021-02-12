@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { YearFromToInputComponent } from './year-from-to-input.component';
+import {YearFromToInputComponent} from './year-from-to-input.component';
 
 describe('YearFromToInputComponent', () => {
   let component: YearFromToInputComponent;
@@ -8,9 +8,9 @@ describe('YearFromToInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ YearFromToInputComponent ]
+      declarations: [YearFromToInputComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

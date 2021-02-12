@@ -17,25 +17,29 @@ export class MultiselectGroupInputComponent implements OnInit {
   _elements: FilterParameters[] = [];
   _selectedElement: FilterParameters | Array<FilterParameters>;
   @Output() elementsChange = new EventEmitter();
+
   set elements(value: FilterParameters[]) {
     this._elements = value;
     this.elementsChange.emit(value);
   }
+
   @Input()
   get elements(): FilterParameters[] {
     return this._elements;
   }
-  @Output() selectedElementsChange = new EventEmitter();
+
+  @Output() selectedElementChange = new EventEmitter();
   set selectedElement(value: FilterParameters | FilterParameters[]) {
     this._selectedElement = value;
-    this.selectedElementsChange.emit(value);
+    this.selectedElementChange.emit(value);
   }
   @Input()
   get selectedElement(): FilterParameters | FilterParameters[] {
     return this._selectedElement;
   }
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

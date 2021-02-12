@@ -7,44 +7,59 @@
       font-size: 28px;
     }
     .navbar .navbar-user button.btn-primary:hover {
-      font-size: 14px;
+      font-size: 16px;
       color: white;
       background-color: #fd9b28;
       border-color: #fd9b28;
       box-shadow: #fd9b28;
     }
     .navbar .navbar-user button.btn-primary {
-      font-size: 14px;
-    }
-    margin-bottom: 90px;
-    .navbar {
-      padding: 10px 5px
-    }
-
-  }
-
-  @media screen and (max-width: 568px) {
-    .navbar a.navbar-brand {
       font-size: 16px;
     }
+    margin-bottom: 90px;
+    .navbar {
+      padding: 10px 5px
+    }
+
+  }
+
+  @media screen and (max-width: 385px) {
+    .navbar a.navbar-brand {
+      font-size: 24px;
+    }
     .navbar .navbar-user button.btn-primary:hover {
-      font-size: 14px;
+      font-size: 16px;
       color: white;
       background-color: #fd9b28;
       border-color: #fd9b28;
       box-shadow: #fd9b28;
     }
     .navbar .navbar-user button.btn-primary {
-      font-size: 14px;
+      font-size: 16px;
+    }
+    .navbar .navbar-user .user-name {
+      display: inline;
+    }
+    .navbar a.navbar-brand .navbar-brand-mb {
+      display: inline;
+    }
+    .navbar a.navbar-brand .navbar-brand-xl {
+      display: none;
     }
     margin-bottom: 90px;
     .navbar {
       padding: 10px 5px
     }
-
+    .tit{
+      font-size: 7px !important;
+    }
 
   }
-
+  @media screen and (max-width: 305px) {
+    .navbar .navbar-user button.user-name {
+      display: none;
+    }
+  }
   background-color: #f0f0f0;
   margin-top: 85px;
 
@@ -55,12 +70,22 @@
     background: #fff;
     /* height: 70px;*/
     .navbar-brand {
-      font-size: 35px;
+      font-size: 34px;
       color: #232323;
-      margin-right: 5px;
+      margin-right: 5px !important;
     }
 
+    .navbar-brand-mb {
+      display: none;
+    }
 
+    .navbar-brand-xl {
+      display: inline;
+    }
+
+    .tit{
+      font-size: 12px;
+    }
     .navbar-user {
 
       display: flex;
@@ -68,12 +93,6 @@
       color: #fd9b28;
       font-size: 16px;
 
-      .user-name {
-        margin-right: 5px;
-        color: #232323;
-        background-color: white;
-
-      }
 
       .navbar-toggler {
         margin-left: 20px;
@@ -89,12 +108,24 @@
 
       }
 
+      .btn-primary {
+        width: unset;
+        margin: 0 !important;;
+      }
+
       .btn-primary:hover {
         font-size: 18px;
         color: white;
         background-color: #fd9b28;
         border-color: #fd9b28;
         box-shadow: #fd9b28;
+      }
+
+      .user-name {
+        margin-right: 5px !important;
+        color: #232323;
+        background-color: white;
+
       }
 
       .btn-primary.focus .btn-primary:focus {

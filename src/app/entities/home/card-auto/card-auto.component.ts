@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {Car} from '@app/shared/models/car.model';
+import {AutoriaDevCredentialsService} from "@app/shared/services/auto-ria/autoria-dev-credentials.service";
 
 @Component({
   selector: 'app-card-auto',
@@ -14,26 +15,23 @@ export class CardAutoComponent implements OnInit {
   numberOfPage: number;
   readonly numberCarsInPage = 2;
   numberCarsInPageNow: number;
+  isTrue: true;
   pageNow = -1;
+    public adsUser: any[];
 
-  constructor() {
-
+    constructor(public autoriaDevCredentialsService: AutoriaDevCredentialsService
+  ) {
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
   ngOnInit(): void {
-    let car = new Car('assets/img/maserati-levante.jpg', 'Maserati', '50 508');
-    this.cars.push(new Car('assets/img/maserati-levante.jpg', 'Maserati1', '50 508'));
-    this.cars.push(new Car('assets/img/maserati.jpg', 'Maserati2', '120 650'));
-    this.cars.push(new Car('assets/img/pininfarina-maserati.jpg', 'Maserati3', '50 508'));
-    this.cars.push(new Car('assets/img/maserati.jpg', 'Maserati4', '120 650'));
-    this.cars.push(new Car('assets/img/pininfarina-maserati.jpg', 'Maserati5', '50 508'));
+      if (localStorage.getItem('AuthRia') == 'Done' ) {
+          this.isTrue = true;
+          this.autoriaDevCredentialsService.getAutoriaAds().subscribe(value =>{this.adsUser = value.active
+              console.log(this.adsUser)
+              return
+          }, error => localStorage.removeItem('AuthRia'));      }
 
-    this.numberOfPage = this.cars.length;
-    for (let i = 0; i < this.numberCarsInPage; i++) {
-      this.carsInPage.push(new Car());
-    }
     this.leaf(0);
 
   }

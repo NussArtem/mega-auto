@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MultipleSelectGroupInputComponent } from './multiple-select-group-input.component';
+import {MultipleSelectGroupInputComponent} from './multiple-select-group-input.component';
 
 describe('MultipleSelectGroupInputComponent', () => {
   let component: MultipleSelectGroupInputComponent;
@@ -8,9 +8,9 @@ describe('MultipleSelectGroupInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MultipleSelectGroupInputComponent ]
+      declarations: [MultipleSelectGroupInputComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,29 +1,39 @@
 
-.card {
-  mat-card {
-    margin-right: auto;
-    margin-left: auto;
+h1 {
+  margin: 0;
+}
+
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #fd9b28 !important;
+}
+
+// overwrite the ripple overlay on hover and click
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+  background-color: #fd9b28 !important;
+}
+
+@media screen and (max-width: 380px) {
+  .card-auto {
+    margin: 15px 0 !important;
   }
 }
 
-
-
-
-::ng-deep .mat-checkbox-checked .mat-checkbox-background {
-  background-color: #fd9b28 !important;
-}
 .card-auto {
 
   margin: 15px;
 
-  mat-checkbox{
+  mat-checkbox {
     margin-left: 10px;
   }
 }
 
-.example-card {
-  max-width: 400px;
-
+.card-body {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  max-height: 720px;
+  padding: 0 !important;
 }
 
 .info {

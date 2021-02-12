@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AutoComponent } from './auto.component';
+import {AutoComponent} from './auto.component';
 
 describe('AutoComponent', () => {
   let component: AutoComponent;
@@ -8,9 +8,9 @@ describe('AutoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutoComponent ]
+      declarations: [AutoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

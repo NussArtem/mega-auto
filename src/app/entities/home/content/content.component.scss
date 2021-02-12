@@ -3,14 +3,25 @@ label {
   display: block;
 }
 
+.msg-cookie{
+  min-height: 120px;
+  width: 100vw;
+  padding-top: 25px;
+
+  .text-coc {
+    font-size: 18px;
+    display: flex !important;
+    @media screen and (max-width: 768px) {
+      display: inline-block !important;
+    }
+  }
+}
 mat-spinner {
-  margin-top: 25%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 25%;
+  margin: 25% auto;
 
   color: #fd9b28;
 }
+
 
 /*;*/
 .card {
@@ -28,9 +39,15 @@ mat-spinner {
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #fd9b28;
       outline: 0 none;
     }*/
-
+  .mat-step-label {
+    color: white;
+  }
 
   ::ng-deep.mat-form-field-underline {
+    mat-label {
+      color: #fd9b28;
+    }
+
     /*change color of underline*/
     background-color: #fd9b28 !important;
   }
@@ -76,6 +93,16 @@ mat-spinner {
 
   .form-group {
 
+
+    .clear {
+      margin-left: auto;
+    }
+
+    .btn-primary:focus {
+      background-color: #fd9b28;
+      color: white;
+    }
+
     .btn-primary {
       font-size: 18px;
       border-color: #fd9b28;
@@ -88,6 +115,10 @@ mat-spinner {
       background-color: #fd9b28;
       border-color: #fd9b28;
       box-shadow: #fd9b28;
+    }
+
+    .btn-primary:active {
+      background-color: #fd9b28 !important;
     }
 
     .btn-link {
@@ -148,6 +179,9 @@ mat-spinner {
     }
   }
 
+  mat-paginator {
+    margin-right: auto;
+  }
 
   .info-title {
     font-size: 24px;

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 
@@ -14,11 +14,12 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(catchError(err => {
       if ([401, 403].includes(err.status) && this.accountService.userValue) {
         // auto logout if 401 or 403 response returned from api
+        this.accountService.tokenRefresh();
       }
 
       const error = err.error?.message || err.statusText;
       console.error(err);
       return throwError(err);
-    }))
+    }));
   }
 }

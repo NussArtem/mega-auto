@@ -1,8 +1,11 @@
 .example-card {
 
-  h1 {
-    margin: 30px 30px 30px 30px;
 
+  @media screen and (max-width: 768px) {
+    input {
+      width: 100%;
+      margin: 15px 0;
+    }
   }
 
   textarea:focus,
@@ -26,7 +29,35 @@
     outline: 0 none;
   }
 
-  margin-bottom: 427px;
+
+  .form
+  .btn-primary:focus {
+    background-color: #fd9b28;
+    color: white;
+  }
+
+  .btn-primary {
+    font-size: 18px;
+    border-color: #fd9b28;
+    color: #fd9b28;
+  }
+
+
+  .btn-primary:hover {
+    font-size: 18px;
+    color: white;
+    background-color: #fd9b28;
+    border-color: #fd9b28;
+    box-shadow: #fd9b28;
+  }
+
+  .btn-primary:disabled {
+    background-color: white;
+  }
+
+  .btn-primary:active {
+    background-color: #fd9b28 !important;
+  }
 
   label {
     margin-left: 30px;
@@ -39,13 +70,6 @@
 
   }
 
-  .btn {
-    margin-left: 30px;
-    margin-bottom: 0.3rem;
-    border-color: #fd9b28;
-    background: #fd9b28;
-
-  }
 
 }
 

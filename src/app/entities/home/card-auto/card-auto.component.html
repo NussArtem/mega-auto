@@ -1,39 +1,44 @@
-<div class="container-fluid">
-<div class="card ">
 
-  <div class="card-header">
-    <h1>Мои объявления</h1>
-  </div>
+<div class="container-fluid" *ngIf="isTrue">
+  <div class="card ">
 
-  <div  class="card-auto center" *ngFor="let car of carsInPage">
-
-      <mat-card *ngIf="car" class="example-card ">
-        <img mat-card-image *ngIf="car.imageUrl" [src]="car.imageUrl">
-        <mat-card-content>
-          <ul class="info">
-            <li class="info-title">
-              <span *ngIf="car.name">{{car.name}}</span>
-            </li>
-            <li>
-              <span class="price" *ngIf="car.price">{{car.price}} $</span>
-            </li>
-          </ul>
-        </mat-card-content>
-        <mat-card-footer>
-          <mat-checkbox ></mat-checkbox>
-        </mat-card-footer>
-      </mat-card>
-
-  </div>
-
-  <mat-paginator [length]="numberOfPage"
-                 [pageSize]="2"
-                 (page)="doLeaf($event)"
-                 hidePageSize="folse"
-                 [showFirstLastButtons]="false">
-  </mat-paginator
-  >
-  <div *ngIf="pageEvent">
+    <div class="card-header">
+      <h1>Мои объявления</h1>
+    </div>
+    <div class="card-body">
+      <div class="card-auto center" *ngFor="let car of adsUser">
+        <mat-card  class="example-card ">
+          <img mat-card-image [src]='car.photoData.seoLinkF' alt="Maserati Levante">
+          <mat-card-content>
+            <ul class="info">
+              <li class="info-title">
+                <span>{{car.markName}}</span>
+              </li>
+              <li>
+                <span class="price">$ {{car.USD}}</span>
+              </li>
+            </ul>
+          </mat-card-content>
+          <mat-card-footer>
+            <mat-checkbox></mat-checkbox>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </div>
   </div>
 </div>
+
+
+<div class="container-fluid" *ngIf="!isTrue">
+  <div class="card ">
+
+    <div class="card-header">
+      <h1>Мои объявления</h1>
+    </div>
+    <div class="card-body">
+      <div class="card-auto center">
+        <span>для использования данного раздела войдити в свой аккаунт <a style="color: #fd9b28" routerLinkActive routerLink="/profile/ads">AutoRia</a></span>
+      </div>
+    </div>
+  </div>
 </div>

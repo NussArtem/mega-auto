@@ -1,4 +1,4 @@
-﻿﻿<mat-card class="example-card">
+﻿<mat-card class="example-card">
 
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
@@ -8,66 +8,41 @@
 
   </mat-card-header>
   <div class="row">
-    <div class="col-lg-3 col-mb-5">
-      <img
-        src="https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png"
-        class="img-fluid">
-    </div>
 
-    <div class="col-9 col-mb-7">
-      <div class="row">
-        <div class="col">
-          <h3>{{user.first_name}} {{user.last_name}}</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <h3>Ваш клиентский номер: -------</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <h3>{{user.phone_number}}</h3>
-        </div>
-      </div>
-    </div>
     <mat-card-content>
       <div class="col-8">
-
       </div>
     </mat-card-content>
   </div>
 
-  <div class="form-group row">
-    <label for="inputName" class="col-sm-3 col-form-label">{{"user.firstName"| translate}}</label>
-    <div class="col-lg-6 col-mb-8">
-      <input type="text" class="form-control" id="inputName" [(ngModel)]="user.first_name" disabled>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="inputSurname" class="col-sm-3 col-form-label">{{"user.lastName"| translate}}</label>
-    <div class="col-lg-6 col-mb-8">
-      <input type="text" class="form-control" id="inputSurname" [(ngModel)]="user.last_name" disabled>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="inputEmail" class="col-sm-3 col-form-label">{{"user.email"|translate}}</label>
-    <div class="col-lg-6 col-mb-8">
-      <input type="email" class="form-control" id="inputEmail" [(ngModel)]="user.email" disabled>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="inputPhone" class="col-sm-3 col-form-label">{{"user.tel"|translate}}</label>
-    <div class="col-lg-6 col-mb-8">
-      <input type="tel" class="form-control" id="inputPhone" [(ngModel)]="user.phone_number" disabled>
-    </div>
+  <div class="form-group">
+    <label for="balance" class="col-form-label">Баланс</label>
+    <input type="text" class="form-control col-lg-6 col-mb-8" id="balance" [(ngModel)]="user.balance" disabled>
   </div>
 
   <div class="form-group">
-    <button class="btn btn-primary" routerLink="edit/{{user.id}}">
+    <label for="inputName" class="col-form-label">{{"user.firstName"| translate}}</label>
+    <input type="text" class="form-control col-lg-6 col-mb-8" id="inputName" [(ngModel)]="user.first_name" disabled>
+  </div>
+
+  <div class="form-group">
+    <label for="inputSurname" class="col-form-label">{{"user.lastName"| translate}}</label>
+    <input type="text" class="form-control col-lg-6 col-mb-8" id="inputSurname" [(ngModel)]="user.last_name" disabled>
+  </div>
+
+  <div class="form-group">
+    <label for="inputEmail" class="col-form-label">{{"user.email"|translate}}</label>
+    <input type="email" class="form-control col-lg-6 col-mb-8" id="inputEmail" [(ngModel)]="user.email" disabled>
+  </div>
+
+  <div class="form-group">
+    <label for="inputPhone" class="col-form-label">{{"user.tel"|translate}}</label>
+    <input type="tel" class="form-control col-lg-6 col-mb-8" id="inputPhone" [(ngModel)]="user.phone_number" disabled>
+  </div>
+
+  <div class="form-group">
+
+    <button mat-stroked-button class="btn-primary" routerLink="edit/">
       Редактировать
     </button>
   </div>

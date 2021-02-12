@@ -1,10 +1,9 @@
-﻿import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+﻿﻿import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {catchError, first} from 'rxjs/operators';
+import {first} from 'rxjs/operators';
 
 import {AccountService, AlertService} from '../../../shared/services/helpers';
-import {pipe} from "rxjs";
 
 @Component({
   templateUrl: 'register.component.html',
@@ -62,10 +61,11 @@ export class RegisterComponent implements OnInit {
           this.alertService.success('Registration successful', {keepAfterRouteChange: true});
           this.router.navigate(['../login'], {relativeTo: this.route});
         },
-        error: err => {
-          this.alertService.error(err.statusText);
-          this.f.errors = err.errors;
+        error: error => {
+          this.alertService.error(error.error.detail);
+          this.f.errors = error.errors;
           this.loading = false;
+          window.location.reload();
         },
       });
   }

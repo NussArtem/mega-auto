@@ -1,6 +1,7 @@
-﻿import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+﻿
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
 import {AccountService, AlertService} from '../../../shared/services/helpers';
@@ -18,7 +19,6 @@ export class AddEditComponent implements OnInit {
   loading = false;
   submitted = false;
   user: User;
-
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -38,14 +38,15 @@ export class AddEditComponent implements OnInit {
       passwordValidators.push(Validators.required);
     }
 
-    this.form = this.formBuilder.group({
-      first_name: [this.user.first_name, Validators.required],
-      last_name: [this.user.last_name, Validators.required],
-      username: [this.user.username, Validators.required],
-      email: [this.user.email, Validators.required],
-      phone_number: [this.user.phone_number, Validators.required],
-      /*   password: ['', passwordValidators]*/
+    this.form = new FormGroup({
+      first_name:  new FormControl(this.user.first_name, Validators.required),
+      last_name: new FormControl(this.user.last_name, Validators.required),
+      username: new FormControl(this.user.username, Validators.required),
+      email: new FormControl(this.user.email, Validators.required),
+      phone_number: new FormControl(this.user.phone_number, Validators.required),
+
     });
+
   }
 
   // convenience getter for easy access to form fields
@@ -74,11 +75,12 @@ export class AddEditComponent implements OnInit {
       .pipe(first())
       .subscribe({
         next: () => {
+
           this.alertService.success('Update successful', {keepAfterRouteChange: true});
-          this.router.navigate(['../../'], {relativeTo: this.route});
+          this.router.navigate(['/profile'], {relativeTo: this.route});
         },
         error: error => {
-          this.alertService.error(error);
+          this.alertService.error(error.error.detail);
           this.loading = false;
         }
       });

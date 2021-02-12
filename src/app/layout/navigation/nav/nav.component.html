@@ -1,30 +1,46 @@
 <div class="app-wrapper container">
   <nav class="navbar fixed-top navbar-light  ">
-    <a class="navbar-brand" routerLink="/">
-      <span style="color: #fd9b28;">|</span>MeGa<span style="color: #fd9b28;">A</span>uto
-    </a>
-    <form class="form-inline">
-      <div class="navbar-user">
-        <button
-          mat-button
-          class="btn-primary btn-outline-success nav-item nav-link my-2 my-sm-0 user-name"
-          routerLink="/profile">
-          {{user.first_name}}
-        </button>
-        <button
-          mat-stroked-button
-          class="btn-primary btn-outline-success nav-item nav-link my-2 my-sm-0"
-          (click)="logout()">
-          Выход
-        </button>
-        <button class="navbar-toggler  d-lg-none collapsed my-2 my-sm-0" type="button" data-toggle="collapse"
-                #dismiss
-                data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-                aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <a class="navbar-brand " routerLink="/">
+      <div class="navbar-brand-xl">
+        <span style="color: #fd9b28;">|</span>MeGa<span style="color: #fd9b28;">A</span>uto
       </div>
-    </form>
+      <div class="navbar-brand-mb">
+        <span style="color: #fd9b28;">|</span>MG<span style="color: #fd9b28;">A</span>
+      </div>
+      <div>
+        <span class="tit">Твой помощник по обмену машин!</span>
+      </div>
+    </a>
+
+
+    <div class="navbar-user">
+      <button *ngIf="user"
+        mat-button
+        class="btn-primary btn-outline-success nav-item nav-link my-2 my-sm-0 user-name"
+        routerLink="/profile" data-toggle="collapse" data-target=".collapse.show">
+        {{user.first_name}}
+      </button>
+      <button *ngIf="user"
+        mat-stroked-button
+        class="btn-primary btn-outline-success nav-item nav-link my-2 my-sm-0"
+        (click)="logout()">
+        Выход
+      </button>
+      <button *ngIf="!user"
+        mat-stroked-button
+        class="btn-primary btn-outline-success nav-item nav-link my-2 my-sm-0"
+              routerLink="/account/login"
+        >
+        Вход
+      </button>
+      <a class="navbar-toggler  d-lg-none collapsed my-2 my-sm-0" type="button" data-toggle="collapse"
+              #dismiss
+              data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </a>
+    </div>
+
 
   </nav>
 </div>

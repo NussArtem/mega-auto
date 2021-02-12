@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {FilterParameters} from '@app/shared/models/interfaces/FilterParameters';
-import {AutoRiaAds} from '@app/shared/models/auto-ria-ads.model';
-import {FilterParameterGroupValue} from '@app/shared/models/interfaces/helpers/filter-parameter-group-value.model';
+import {FilterParameters} from '../../../models/interfaces/FilterParameters';
+import {AutoRiaAds} from '../../../models/auto-ria-ads.model';
+import {FilterParameterGroupValue} from '../../../models/interfaces/helpers/filter-parameter-group-value.model';
+import {environment} from '@environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -12,28 +13,28 @@ export class AutoRiaFilterService {
   apiUrl: string;
 
   constructor(private http: HttpClient) {
-    this.apiUrl = 'http://94.237.97.139:8000/api/v1/autoria_parameters';
+    this.apiUrl = '/autoria_parameters';
   }
 
   getConstantParametrs() {
     return this.http.get<any>
-    (`${this.apiUrl}/constant_parameters/`);
+    (`${environment.apiUrl}${this.apiUrl}/constant_parameters/`);
   }
 
   getBrands(transportType: FilterParameters) {
     const params = new HttpParams().set('transport_type', String(transportType.value));
-    return this.http.get<any>(`${this.apiUrl}/mark_parameters/`, {params});
+    return this.http.get<any>(`${environment.apiUrl}${this.apiUrl}/mark_parameters/`, {params});
   }
 
   getModels(transportType: FilterParameters, brandParameter: FilterParameters) {
     const params = new HttpParams().set('transport_type', String(transportType.value)).set('mark', String(brandParameter.value));
     const paramsTwo = new HttpParams();
     return this.http.get<any>
-    (`${this.apiUrl}/model_parameters/`, {params});
+    (`${environment.apiUrl}${this.apiUrl}/model_parameters/`, {params});
   }
 
   getCarPhotos(carId: string) {
-    return this.http.get<any>(`${this.apiUrl}/car_photos/${carId}`);
+    return this.http.get<any>(`${environment.apiUrl}${this.apiUrl}/car_photos/${carId}`);
   }
 
   search(
@@ -51,8 +52,8 @@ export class AutoRiaFilterService {
     mileageTo: number,
     volumeFrom: number,
     volumeTo: number,
-    page: number,
-    countOnPage: number
+    tradeType: FilterParameters,
+
   ) {
     let params = new HttpParams();
     if (transportType) {
@@ -109,10 +110,11 @@ export class AutoRiaFilterService {
     if (volumeTo) {
       params = params.append('engineVolumeTo', String(volumeFrom));
     }
+    if (tradeType){
+        params = params.append('exchangeTypeId', String(tradeType.value));
 
-    params = params.append('page', String(page));
-    params = params.append('countpage', String(countOnPage));
-    return this.http.get<AutoRiaAds>(`${this.apiUrl}/search/`, {params});
+    }
+    return this.http.get<AutoRiaAds>(`${environment.apiUrl}${this.apiUrl}/search/`, {params});
 
   }
 

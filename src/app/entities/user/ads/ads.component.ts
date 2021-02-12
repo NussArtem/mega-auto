@@ -2,14 +2,13 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AccountService, AlertService} from '../../../shared/services/helpers';
-import {Subscription} from 'rxjs';
-import {first} from 'rxjs/operators';
 import {User} from '../../../shared/models';
+import {AutoriaDevCredentialsService} from "../../../shared/services/auto-ria/autoria-dev-credentials.service";
 
 @Component({
   selector: 'app-ads',
   templateUrl: './ads.component.html',
-  styleUrls: ['../../../core/account/login/login.component.scss', './ads.component.scss']
+  styleUrls: ['./ads.component.scss']
 })
 export class AdsComponent implements OnInit, OnDestroy {
 
@@ -20,22 +19,36 @@ export class AdsComponent implements OnInit, OnDestroy {
   submitted = false;
   username: string = '';
   user: User;
+    public adsUser: any[];
 
-  constructor(
+
+    constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private accountService: AccountService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private autoriaDevCredentialsService: AutoriaDevCredentialsService
   ) {
     this.accountService.user.subscribe(x => this.user = x);
     this.username = this.user.username;
   }
 
   ngOnInit() {
+     console.log(this.adsUser)
     this.form = this.formBuilder.group({
-      password: ['', Validators.required]
+      autoRiaId: ['', Validators.required],
+      autoRiaKey: ['', Validators.required]
     });
+
+    if (localStorage.getItem('AuthRia') == 'Done' ) {
+      this.isTrue = true;
+      this.autoriaDevCredentialsService.getAutoriaAds().subscribe(value =>{this.adsUser = value.active
+          console.log(this.adsUser)
+          return
+      }, error => localStorage.removeItem('AuthRia'));
+    }
+    console.log(localStorage.getItem('AuthRia'))
   }
 
   // convenience getter for easy access to form fields
@@ -44,25 +57,14 @@ export class AdsComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.submitted = true;
-    // reset alerts on submit
-    this.alertService.clear();
-
-    // stop here if form is invalid
-    if (this.form.invalid) {
-      return;
-    }
-
-    this.loading = true;
-    this.accountService.login(this.username, this.f.password.value).subscribe({
-      next: () => {
-        this.isTrue = true;
-      },
-      error: error => {
-        this.alertService.error(error.statusText);
-        this.loading = false;
+      this.autoriaDevCredentialsService.postAutoriaDevCredentials(this.f.autoRiaId.value, this.f.autoRiaKey.value);
+     this.submitted = true;
+     // reset alerts on submit
+     this.alertService.clear()
+      if (localStorage.getItem('AuthRia') == 'Done' ) {
+          this.isTrue = true;
+          this.autoriaDevCredentialsService.getAutoriaAds();
       }
-    });
   }
 
   ngOnDestroy(): void {

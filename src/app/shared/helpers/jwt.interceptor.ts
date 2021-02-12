@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-import {environment} from '../../../environments/environment';
 import {AccountService} from '../services/helpers';
+import {environment} from '@environments/environment.prod';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -18,7 +18,7 @@ export class JwtInterceptor implements HttpInterceptor {
     if (isLoggedIn && isApiUrl) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${user}`
+          Authorization: `Bearer ${user.access}`
         }
       });
     }

@@ -3,7 +3,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   QueryList,
   ViewChild,
@@ -11,18 +10,17 @@ import {
 } from '@angular/core';
 import {CdkVirtualScrollViewport, ScrollDispatcher} from '@angular/cdk/scrolling';
 import {MatOption} from '@angular/material/core';
-import {FilterParametersGroup} from '@app/shared/models/interfaces/filter-parameters-group';
-import {FilterParameters} from '@app/shared/models/interfaces/FilterParameters';
 import {filter} from 'rxjs/operators';
 import {FilterParameterGroupValue} from '@app/shared/models/interfaces/helpers/filter-parameter-group-value.model';
-import {FilterParametersGroupExtended} from "@app/shared/models/interfaces/helpers/filter-parameters-group-extended";
+import {FilterParametersGroupExtended} from '@app/shared/models/interfaces/helpers/filter-parameters-group-extended';
+import {AutoriaDevCredentialsService} from "@app/shared/services/auto-ria/autoria-dev-credentials.service";
 
 @Component({
   selector: 'app-model-multi-select-group',
   templateUrl: './model-multi-select-group.component.html',
   styleUrls: ['./model-multi-select-group.component.scss']
 })
-export class ModelMultiSelectGroupComponent  {
+export class ModelMultiSelectGroupComponent {
 
 
   @ViewChild(CdkVirtualScrollViewport, {static: true}) cdkVirtualScrollViewPort: CdkVirtualScrollViewport;
@@ -47,8 +45,7 @@ export class ModelMultiSelectGroupComponent  {
     return this._elementsGroup;
   }
 
-  constructor(private changeDetectorRef: ChangeDetectorRef, readonly scrollDispatcher: ScrollDispatcher) {
-
+  constructor(private changeDetectorRef: ChangeDetectorRef, readonly scrollDispatcher: ScrollDispatcher, private autoriaDevCredentialsService: AutoriaDevCredentialsService) {
   }
 
   ngAfterViewInit(): void {
@@ -58,22 +55,26 @@ export class ModelMultiSelectGroupComponent  {
       .subscribe(() => {
         let needUpdate = false;
 
-        this.options.forEach(option => {
-          const selected = this.selectedElements.includes(option.value);
-
-          if (selected && !option.selected) {
-            option.select();
-            needUpdate = true;
-          } else if (!selected && option.selected) {
-            option.deselect();
-            needUpdate = true;
-          }
-        });
+        this.rerender(needUpdate);
 
         if (needUpdate) {
           this.changeDetectorRef.detectChanges();
         }
       });
+  }
+
+  rerender(needUpdate) {
+    this.options.forEach(option => {
+      const selected = this.selectedElements.includes(option.value);
+
+      if (selected && !option.selected) {
+        option.select();
+        needUpdate = true;
+      } else if (!selected && option.selected) {
+        option.deselect();
+        needUpdate = true;
+      }
+    });
   }
 
   onOpen() {
@@ -103,8 +104,10 @@ export class ModelMultiSelectGroupComponent  {
     this.selectedElementsChange.emit(this.selectedElements);
 
   }
-  removed(element: FilterParameterGroupValue){
+
+  removed(element: FilterParameterGroupValue) {
     this.selectedElements.splice(this.selectedElements.indexOf(element), 1);
+    this.rerender(true);
     this.selectedElementsChange.emit(this.selectedElements);
   }
 }

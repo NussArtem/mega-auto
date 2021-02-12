@@ -2,52 +2,66 @@
   <mat-spinner></mat-spinner>
 </div>
 
-<div *ngIf="isLoading">
+<div *ngIf="isLoading && user">
 
   <div class="card container-fluid ">
     <div class="row ">
-      <div class="col-lg-9 col-xl-9 filter-panel">
+      <div class="col-lg-12 col-xl-8 filter-panel">
         <div class="feature">
           <div class="container-fluid">
             <div class="form-group">
               <div class="row">
 
                 <div class="col-lg-6 filter">
-                  <label class="col-form-label" for="Mark">
+                  <label class="col-form-label" for="transportType">
                     {{"Transport-type"|translate}}
                   </label>
                   <app-multiselect-input
-                    id="TransportType"
+                    id="transportType"
                     [elements]="transportTypes"
                     [multiply]="false"
-                    (selectedElementsChange)="selectMarks($event)"
+                    (selectedElementsChange)="selectBrands($event)"
                     [label]="('Transport-type'|translate)">
                   </app-multiselect-input>
                 </div>
 
                 <div class="col-lg-6 filter">
-                  <label class="col-form-label" for="Mark">
-                    {{"Mark"|translate}}
+                  <label class="col-form-label" for="year">
+                    {{"Year"|translate}}
+                  </label>
+                  <app-year-from-to-input id="year"
+                                          [(yearFrom)]="yearFrom"
+                                          [(yearTo)]="yearTo">
+                  </app-year-from-to-input>
+                </div>
+
+
+              </div>
+              <div class="row">
+
+                <div class="col-lg-12 filter">
+                  <label class="col-form-label" for="brand">
+                    {{"Brand"|translate}}
                   </label>
                   <app-multiple-select-group-input
-                    id="Mark"
-                    [disabled]="markSelectDisable"
-                    [elementsGroup]="marksGroup"
+                    id="brand"
+                    [(selectedElements)]="selectedBrands"
+                    [disabled]="brandSelectDisable"
+                    [elementsGroup]="brandsGroup"
                     (selectedElementsChange)="selectModelGroups($event)"
-                    [label]="('Mark'|translate)">
+                    [label]="('Brand'|translate)">
                   </app-multiple-select-group-input>
                 </div>
 
               </div>
-
               <div class="row">
-
-                <div class="col-lg-6 filter">
-                  <label class="col-form-label" for="Model">
+                <div class="col-lg-12 filter">
+                  <label class="col-form-label" for="model">
                     {{"Model"|translate}}
                   </label>
                   <app-model-multi-select-group
-                    id="Model"
+                    id="model"
+
                     [label]="('Model'|translate)"
                     [elementsGroup]="modelGroups"
                     (selectedElementsChange)="selectModels($event)"
@@ -55,32 +69,23 @@
                   </app-model-multi-select-group>
                 </div>
 
-                <div class="col-lg-6 filter">
-                  <label class="col-form-label" for="Year">
-                    {{"Year"|translate}}
-                  </label>
-                  <app-year-from-to-input id="Year"
-                                          [(yearFrom)]="yearFrom"
-                                          [(yearTo)]="yearTo">
-                  </app-year-from-to-input>
-                </div>
-
               </div>
+
             </div>
           </div>
         </div>
-
         <div class="feature">
           <div class="container-fluid">
             <div class="form-group">
               <div class="row">
 
                 <div class="col-lg-6 filter">
-                  <label for="Region" class="col-form-label">
+                  <label for="region" class="col-form-label">
                     {{"Region"|translate}}
                   </label>
                   <app-multiple-select-group-input
-                    id="Region"
+                    id="region"
+                    [(selectedElements)]="selectedRegion"
                     [label]="('Region'| translate)"
                     [elementsGroup]="statesGroup"
                     (selectedElementsChange)="selectRegions($event)"></app-multiple-select-group-input>
@@ -91,7 +96,7 @@
                     {{"The-cost"|translate}}
                   </label>
                   <app-from-to-input
-                    id="The-cost"
+                    id="the-cost"
                     [(elementFrom)]="priseFrom"
                     [(elementTo)]="priseTo"
                     [MatIcon]="'attach_money'">
@@ -102,149 +107,93 @@
             </div>
           </div>
         </div>
-
         <div class="feature">
           <div class="container-fluid">
             <div class="form-group">
               <div class="row">
 
-                <div class=" col-lg-6 filter">
-                  <label for="Fuel" class=" col-form-label">
-                    {{"Fuel"|translate}}
+                <div class="col-lg-12 filter">
+                  <label class="col-form-label" for="transportType">
+                    {{"Trade-type"|translate}}
                   </label>
-                  <app-multiple-select-group-input
-                    id="Fuel"
-                    [elementsGroup]="fuelTypesGroup"
-                    (selectedElementsChange)="selectFuelType($event)"
-                    [label]="('Fuel'|translate)"></app-multiple-select-group-input>
+                  <app-multiselect-input
+                          id="tradeType"
+                          [elements]="tradeTypes"
+                          [multiply]="false"
+                          (selectedElementsChange)="selectTypesTrade($event)"
+                          [label]="('Trade-type'|translate)">
+                  </app-multiselect-input>
                 </div>
-
-                <div class=" col-lg-6 filter">
-                  <label for="Volume-l" class="col-form-label">
-                    {{"Volume-l."|translate}}
-                  </label>
-                  <app-from-to-input
-                    id="Volume-l"
-                    [(elementFrom)]="volumeFrom"
-                    [(elementTo)]="volumeTo">
-                  </app-from-to-input>
-
-                </div>
-
               </div>
             </div>
           </div>
         </div>
-
-        <div class="feature">
-          <div class="container-fluid">
-            <div class="row form-group">
-
-              <div class="col-lg-6 filter">
-                <label for="Transmission" class=" col-form-label">
-                  {{"Transmission"|translate}}
-                </label>
-                <app-multiple-select-group-input
-                  id="Transmission"
-                  [elementsGroup]="gearBoxTypesGroup"
-                  (selectedElementsChange)="selectGearBox($event)"
-                  [label]="('Transmission'|translate)"></app-multiple-select-group-input>
+        <div *ngIf="submited" class="filter">
+          <div class="alert alert-success col-lg-12">
+            <strong>Успешно!</strong> Рассылка началась, ожидайте...
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="container-fluid">
+              <div class="form-group" >
+                <button mat-stroked-button (click)="search()" class="btn-primary">
+                  {{"Search"|translate}}
+                </button>
               </div>
-
-              <div class="col-lg-6 filter">
-                <label for="Mileage-thousand-km" class="col-form-label">
-                  {{"Mileage-thousand-km"|translate}}
-                </label>
-                <app-from-to-input
-                  id="Mileage-thousand-km"
-                  [(elementFrom)]="mileageFrom"
-                  [(elementTo)]="mileageTo"
-                >
-                </app-from-to-input>
-              </div>
-
             </div>
           </div>
-
         </div>
       </div>
-      <div class="col-lg-3 col-xl-3 filter-panel">
+      <div class="col-xl-4 filter-panel">
         <app-card-auto></app-card-auto>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="container-fluid">
-          <div class="form-group">
-            <button mat-stroked-button (click)="search(0)" class="btn-primary">
-              {{"Search"|translate}}
-            </button>
-            <a class="btn btn-link">{{"Stop"|translate}}</a>
-          </div>
-
-          <mat-progress-bar *ngIf="!loading" class="progress-bar" value="0"></mat-progress-bar>
-          <mat-progress-bar *ngIf="loading" mode="indeterminate" class="progress-bar" value="0"></mat-progress-bar>
-        </div>
-      </div>
-    </div>
-
   </div>
-  <div *ngIf="carsLoaded" class="card ">
-    <div class="card col-lg-12" *ngFor="let ad of ads.search_result_detail">
-      <div class="row ads-row">
-        <div class="col-lg-4 col-sm-5 ">
-          <img
-            [src]="ad.photoData.seoLinkF" class="img-fluid" alt="Responsive image">
-        </div>
-        <div class="col-lg-8 col-sm-7">
-
-          <a class="info-title ad-info" [routerLink]="'auto'">{{ad.title}}</a>
-          <div class="ad-info">
-            <div class="price">{{ad.USD}} $</div>
-          </div>
-          <div class="ad-info">
-            <mat-chip class="ad-info">
-
-              <mat-icon>local_gas_station</mat-icon>
-              {{ad.autoData.fuelName}}
-            </mat-chip>
-
-            <mat-chip class="ad-info">
-              <mat-icon>settings</mat-icon>
-              {{ad.autoData.gearboxName}}
-            </mat-chip>
-
-            <mat-chip class="ad-info">
-              <mat-icon>speed</mat-icon>
-              {{ad.autoData.race}}
-            </mat-chip>
-
-            <mat-chip class="ad-info">
-              <mat-icon>location_on</mat-icon>
-              {{ad.locationCityName}}
-            </mat-chip>
-
-          </div>
-          <div>
-            <div class="card"
-                 style="::ng-deep border-color: #fd9b28; border-radius: 1px; background: white; border-width: 1px">
-              {{ad.VIN}}
+</div>
+<div *ngIf="!user">
+  <div class="card container-fluid ">
+    <div class="row ">
+      <div class="col-lg-12 col-xl-12 filter-panel">
+        <div class="feature">
+          <div class="container-fluid">
+            <div class="form-group">
+              <div>
+                <p>❗️ Поможем обменять Ваш автомобиль на сайте auto.ria.com (<a href="https://auto.ria.com/uk/">https://auto.ria.com/uk/</a>) в 10 раз быстрее!</p>
+                <br>
+                 <p>❗ Наш робот за 1 час работы разошлёт Ваше предложение обмена по заданным параметрам всем подходящим респондентам.</p>
+                <br>
+                <p>   📌 Вы указываете регион и диапазон цен, а мы добавляем Ваш автомобиль на обмен ко всем автомобилям на сайте AutoRIA по этим параметрам!
+                </p>
+                <br>
+                <p>  👉 Отправляйте свое предложение десяткам тысяч автомобилистов во всей Украине или только в своем городе! </p>
+                <br>
+                 <p>  ⏰ Срок выполнения один час!</p>
+                <br>
+                <p>   ✅ Узнать как это работает - <a href="https://t.me/RIAobmen"> бесплатная консультация! </a>  </p>
+                <br>
+                  <p>  ☎️ Контакты: <a href="https://t.me/RIAobmen">@RIAobmen </a></p>
+                <br>
+                 <p>  👉 Проверьте avto-obmen в деле
+                «Окно, ссылка»  </p>
+              </div>
             </div>
 
           </div>
-
         </div>
       </div>
-
     </div>
-    <mat-paginator
-      #paginator
-      [disabled]="!paginationIsActive"
-      [hidePageSize]="true"
-      [length]="length"
-      [pageSize]="10"
-
-      (page)="pagination($event)">
-    </mat-paginator>
   </div>
+</div>
+
+<div class="msg-cookie card" *ngIf="!isCookie">
+    <div class="text-coc">
+        <p class="col-11 mt-3 col-md-7">Мы используем ващи coockie файлы, чтоб вам было удобно использовать сайт!</p>
+
+        <div class="form-group col-11 mt-2 col-md-3">
+            <button mat-stroked-button type="button" class="btn-primary pl-5 pr-5" (click)="cookieUser()">Хорошо</button>
+        </div>
+    </div>
+
+
 </div>

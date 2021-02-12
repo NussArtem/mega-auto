@@ -15,27 +15,35 @@ export class MultiselectInputComponent implements OnInit {
   @Input()
   disabled: boolean;
   _elements: FilterParameters[] = [];
-  _selectedElement: FilterParameters | Array<FilterParameters>;
+  _selectedElements: FilterParameters | Array<FilterParameters>;
   @Output() elementsChange = new EventEmitter();
+
   set elements(value: FilterParameters[]) {
     this._elements = value;
     this.elementsChange.emit(value);
   }
+
   @Input()
   get elements(): FilterParameters[] {
     return this._elements;
   }
+
   @Output() selectedElementsChange = new EventEmitter();
-  set selectedElement(value: FilterParameters | FilterParameters[]) {
-    this._selectedElement = value;
+
+  set selectedElements(value: FilterParameters | FilterParameters[]) {
+    this._selectedElements = value;
+
     this.selectedElementsChange.emit(value);
   }
+
   @Input()
-  get selectedElement(): FilterParameters | FilterParameters[] {
-    return this._selectedElement;
+  get selectedElements(): FilterParameters | FilterParameters[] {
+
+    return this._selectedElements;
   }
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

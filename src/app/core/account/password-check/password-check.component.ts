@@ -58,7 +58,7 @@ export class PasswordCheckComponent implements OnInit {
           this.router.navigateByUrl(returnUrl);
         },
         error: error => {
-          this.alertService.error(error);
+          this.alertService.error(error.error.detail);
           this.loading = false;
         }
       });

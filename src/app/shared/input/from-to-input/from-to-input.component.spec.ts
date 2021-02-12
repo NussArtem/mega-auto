@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FromToInputComponent } from './from-to-input.component';
+import {FromToInputComponent} from './from-to-input.component';
 
 describe('CostToInputComponent', () => {
   let component: FromToInputComponent;
@@ -8,9 +8,9 @@ describe('CostToInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FromToInputComponent ]
+      declarations: [FromToInputComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
